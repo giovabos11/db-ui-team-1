@@ -1,8 +1,10 @@
 import "./App.css";
 import axios from "axios";
-
+import { WorkoutGallery } from "./components/WorkoutGallery";
 function App() {
     const url = "http://localhost:8000";
+
+    
 
     const checkAPI = () => {
         axios
@@ -68,6 +70,12 @@ function App() {
             });
     };
 
+    const initialWorkouts = [
+        { id: 1, name: "Workout 1",  },
+        { id: 2, name: "Workout 2" },
+        { id: 3, name: "Workout 3" }
+      ];
+
     return (
         <div className="App">
             <h1>Hello World!</h1>
@@ -76,6 +84,10 @@ function App() {
             <button onClick={sendUser}>Send User to DB</button>
             <button onClick={getUsers}>Get users from DB</button>
             <button onClick={clearUsers}>Clear Users in DB</button>
+            
+            <WorkoutGallery>
+                
+            </WorkoutGallery>
         </div>
     );
 }

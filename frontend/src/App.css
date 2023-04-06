@@ -1,3 +1,22 @@
+*{
+  font-size: 12pt;
+}
 .App {
   text-align: center;
+}
+.workout-card {
+  border: 0.063rem;
+  border: solid;
+  border-radius: 2rem;
+  padding: 1rem;
+  margin:1rem;
+  height: 12.5rem;
+
+  
+  
+}
+.workout-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Repeat 4 columns with equal width */
+  gap: 1rem; /* Add gap between columns and rows */
 }
