@@ -20,3 +20,31 @@
   grid-template-columns: repeat(4, 1fr); /* Repeat 4 columns with equal width */
   gap: 1rem; /* Add gap between columns and rows */
 }
+.cart-container {
+  position: fixed;
+  top: 20px; 
+  right: 20px;  
+}
+.cart-dropdown{
+  display: none;
+}
+.cart-container:hover .cart-dropdown {
+  display: block; /* Show the dropdown on hover of the cart container */
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 200px; 
+}
+.cart-dropdown h2 {
+  margin-top: 0;
+}
+
+.cart-dropdown ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cart-dropdown ul li {
+  margin-bottom: 5px;
+}
