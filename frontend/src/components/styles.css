@@ -1,0 +1,38 @@
+h2.mb-4 {
+    font-size: 1.7rem;
+}
+
+[class]{
+    font-size: 1.7rem;
+    text-align: center;
+}
+
+.form-box {
+    border: 0.4rem solid #ddd;
+    border-color: gray;
+    padding: 1rem;
+}
+
+#type{
+    margin-bottom: 3rem;
+}
+
+.form-control-lg{
+    padding-bottom: 0.7rem;
+}
+
+button:hover{
+    opacity: 45%;
+    cursor: pointer;
+}
+
+button{
+    background-color: rgb(75, 173, 141);
+    border: none;
+    border-radius: .3rem;
+    padding: 0.4rem
+}
+
+.email{
+    
+}
