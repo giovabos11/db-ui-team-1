@@ -71,16 +71,11 @@ function App() {
             });
     };
 
-    const initialWorkouts = [
-        { id: 1, name: "Workout 1",  },
-        { id: 2, name: "Workout 2" },
-        { id: 3, name: "Workout 3" }
-      ];
-
+    
     return (
         <div className="App">
             
-            <Header></Header>
+           
             <WorkoutGallery>
                 
             </WorkoutGallery>

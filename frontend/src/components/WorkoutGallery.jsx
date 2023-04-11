@@ -29,7 +29,7 @@ export const WorkoutGallery = () => {
       </div>
 
       <div className="cart-container">
-        <h2 className="text-center">My Workouts</h2>
+        <h3 className="text-center">My Workouts</h3>
         
         <Cart cartItems={cartItems}
         removeFromCart={removeFromCart}
