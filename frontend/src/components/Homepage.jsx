@@ -12,7 +12,7 @@ export const Homepage = () => {
           alt="Workout"
           className="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
         />
-        <div className="position-relative" style={{ zIndex: 999 }}>
+        <div className="position-relative">
           <h1 className="text-center text-white">The Best Workout App Ever Created</h1>
           <p className="text-center text-white">Create your perfect workout today.</p>
         </div>
