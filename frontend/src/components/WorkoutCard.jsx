@@ -1,9 +1,12 @@
 import { useState } from "react";
 
-export const WorkoutCard = ({ name, id, bodyPart, addToCart, img }) => {
+export const WorkoutCard = ({ name, id, bodyPart, addToCart, img, setCartItems, cartItems }) => {
 
   const handleAddToCart = () => {
+    const itemPresent = cartItems.some(cartItems => cartItems.id === id);
+    if(!itemPresent){
     addToCart({ name, id, bodyPart });
+    }
   };
 
   return <>
