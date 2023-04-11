@@ -12,6 +12,7 @@ export const Cart = ({ cartItems, setCartItems }) => {
   };
   return (
     <>
+    <div className="flex-box"></div>
       <div className="position-relative">
         <div className="rounded justify-content-center align-items-center position-absolute bg-light border  cart-dropdown">
           {cartItems.length === 0 ? (
@@ -46,8 +47,11 @@ export const Cart = ({ cartItems, setCartItems }) => {
               </div>
             </>
           )}
+          
         </div>
+        
       </div>
+      
     </>
   );
 };

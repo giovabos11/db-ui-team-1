@@ -5,6 +5,7 @@ import { Header } from "./Header"
 export const WorkoutGallery = () => {
   const [cartItems, setCartItems] = useState([]);
 
+
   return <>
     <div>
       <div className="py-3">
@@ -13,8 +14,10 @@ export const WorkoutGallery = () => {
         setCartItems={setCartItems}
       />
       </div>
-      <div className="position-relative mt-5">
+      <div className="position-relative">
         <h1 className="text-center">Exercise Gallery</h1>
+        <button>Workouts</button>
+        <button>Exercises</button>
         <div className="container-fluid workout-grid">
           <WorkoutCard name="Bench Press" id="1" bodyPart="Chest" img="https://static.strengthlevel.com/images/illustrations/bench-press-1000x1000.jpg"
             cartItems={cartItems}

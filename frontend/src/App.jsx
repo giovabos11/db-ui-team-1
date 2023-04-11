@@ -2,6 +2,7 @@ import "./App.css";
 import axios from "axios";
 import { WorkoutGallery } from "./components/WorkoutGallery";
 import { Homepage } from "./components/Homepage";
+import { Profile} from "./components/Profile"
 function App() {
     const url = "http://localhost:8000/";
 
@@ -75,7 +76,7 @@ function App() {
     return (
         <div className="App">
 
-            <WorkoutGallery></WorkoutGallery>
+            <Profile></Profile>
         </div>
     );
 }

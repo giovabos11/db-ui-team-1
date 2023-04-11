@@ -3,12 +3,16 @@ import { Cart } from "./Cart";
 import { ProfileCard } from "./ProfileCard";
 
 export const Header = ({ cartItems, setCartItems }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const finalizeWorkout = () =>{
+    setCartItems([]);
+  }
   
 
   return (
-    <div className="bg-light fixed-top">
+    <div style={{ marginBottom: "4rem" }}>
+    <div className="bg-light fixed-top" >
       <div className="d-flex justify-content-between py-1">
         <h5 className="m-3">Workout App</h5>
         <div className="d-flex mx-4 align-items-center">
@@ -19,7 +23,12 @@ export const Header = ({ cartItems, setCartItems }) => {
                 <h5 className="text-center">My Workout</h5>
                 <Cart cartItems={cartItems} setCartItems={setCartItems} />
               </div>
-              <button className="btn btn-primary ml-3">Finalize Workout</button>
+              <button className="btn btn-primary ml-3"
+              onClick={() => {
+                finalizeWorkout()
+
+              }}
+              >Finalize Workout</button>
               
             </>
             
@@ -44,6 +53,7 @@ export const Header = ({ cartItems, setCartItems }) => {
           )}
         </div>
       </div>
+    </div>
     </div>
   );
 };
