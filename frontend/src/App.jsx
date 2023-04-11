@@ -75,8 +75,7 @@ function App() {
     return (
         <div className="App">
 
-            <Homepage></Homepage>
-
+            <WorkoutGallery></WorkoutGallery>
         </div>
     );
 }

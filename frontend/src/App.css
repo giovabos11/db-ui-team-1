@@ -11,43 +11,32 @@
   padding: 1rem;
   margin:1rem;
   height: 12.5rem;
-
-  
-  
 }
 .workout-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr); 
   gap: 1rem; 
 }
-.cart-container {
-  position: fixed;
-  display: inline-block;
-  top: 0.5rem; 
-  right: 5rem;  
+
+
+
+
+
+
+.cart-dropdown {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  background-color: #fff;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
 }
-.cart-dropdown{
-  display: none;
-}
+
 .cart-container:hover .cart-dropdown {
-  display: block;
-  background-color: #f8f8f8;
-  border: 0.2rem solid #ccc;
-  width: 10rem; 
-}
-.cart-dropdown h2 {
-  margin-top: 0;
+  opacity: 1;
+  visibility: visible;
 }
 
-.cart-dropdown ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
 
-.cart-dropdown ul li {
-  margin-bottom: 0.353rem;
-}
 #workoutPic{
   width: 6rem;
   height: 6rem;
@@ -56,3 +45,4 @@
 #clear{
   clear:both;
 }
+

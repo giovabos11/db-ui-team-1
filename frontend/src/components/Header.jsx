@@ -1,28 +1,35 @@
 import React, { useState } from "react";
+import { Cart } from "./Cart"
+import { ProfileCard } from "./ProfileCard";
 
-export const Header = () => {
+export const Header = ({ cartItems, removeFromCart }) => {
 
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
 
     return (
-        <>
-        <div className="bg-light fixed-top" >
+        <div className="bg-light fixed-top">
             <div className="d-flex justify-content-between py-1">
-                <h5 className="d-inline-block m-1 p-1 mx-3">Workout App</h5>
-                <div className="d-inline-block mx-4">
+                <h5 className="m-3">Workout App</h5>
+                <div className="d-flex mx-4">
                     {isLoggedIn ? (
-                        // If user is logged in, show a different component or null
-                        null
+                        <div className="d-flex align-items-center">
+                            <ProfileCard />
+                            <div className="cart-container mx-5 m-3">
+                                <h5 className="text-center">My Exercises</h5>
+                                <Cart  
+                                cartItems={cartItems} 
+                                removeFromCart={removeFromCart} />
+                            </div>
+                            <button className="btn btn-primary ml-3">Create Workout</button>
+                        </div>
                     ) : (
-                        // If user is not logged in, show the login button
                         <>
-                            <a className="d-inline-block mx-5" href="#" style={{textDecoration: 'none', color: '#003F7D', fontWeight: 'bold'}}>Login</a>
-                            <a className="d-inline-block my-1 py-2 px-4 text-white rounded" href="#" style={{backgroundColor: 'orange', textDecoration: 'none', fontWeight:"bold" }}>SIGN UP</a>
+                            <a href="#" className="mx-5" style={{ textDecoration: 'none', color: '#003F7D', fontWeight: 'bold' }}>Login</a>
+                            <a href="#" className="my-1 py-2 px-4 text-white rounded" style={{ backgroundColor: 'orange', textDecoration: 'none', fontWeight: "bold" }}>SIGN UP</a>
                         </>
                     )}
                 </div>
             </div>
         </div>
-        </>
     );
 };
