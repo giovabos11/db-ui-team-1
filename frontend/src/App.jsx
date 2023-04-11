@@ -79,6 +79,8 @@ function App() {
             <WorkoutGallery>
                 
             </WorkoutGallery>
+
+            
         </div>
     );
 }
