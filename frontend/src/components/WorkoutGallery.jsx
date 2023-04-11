@@ -17,10 +17,12 @@ export const WorkoutGallery = () => {
 
   return <>
     <div>
+      <div className="py-3">
       <Header
         cartItems={cartItems}
         removeFromCart={removeFromCart}
       />
+      </div>
       <div className="position-relative mt-5">
         <h1 className="text-center">Exercise Gallery</h1>
         <div className="container-fluid workout-grid">
