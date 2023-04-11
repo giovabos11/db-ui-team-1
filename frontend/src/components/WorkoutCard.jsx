@@ -16,7 +16,7 @@ export const WorkoutCard = ({ name, id, bodyPart, addToCart, img, setCartItems, 
       <p>Body Part: {bodyPart}</p>
       <div id="clear"></div>
       <button id="add-cart-button" type="button" onClick={handleAddToCart}>
-        Add to Cart
+        Add to Workout
       </button>
     </div>
   </>
