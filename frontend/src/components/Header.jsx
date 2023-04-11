@@ -5,12 +5,7 @@ import { ProfileCard } from "./ProfileCard";
 export const Header = ({ cartItems, setCartItems }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-  const removeFromCart = (itemToRemove) => {
-    const updatedCartItems = cartItems.filter(
-      (item) => item.id !== itemToRemove.id
-    );
-    setCartItems(updatedCartItems);
-  };
+  
 
   return (
     <div className="bg-light fixed-top">
@@ -22,7 +17,7 @@ export const Header = ({ cartItems, setCartItems }) => {
               <ProfileCard />
               <div className="cart-container mx-5 m-3">
                 <h5 className="text-center">My Workout</h5>
-                <Cart cartItems={cartItems} removeFromCart={removeFromCart} setCartItems={setCartItems} />
+                <Cart cartItems={cartItems} setCartItems={setCartItems} />
               </div>
               <button className="btn btn-primary ml-3">Finalize Workout</button>
               

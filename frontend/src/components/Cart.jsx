@@ -1,9 +1,15 @@
 import React from "react";
 
-export const Cart = ({ cartItems, setCartItems, removeFromCart }) => {
+export const Cart = ({ cartItems, setCartItems }) => {
   const clearCart = () => {
     setCartItems([])
   }
+  const removeFromCart = (itemToRemove) => {
+    const updatedCartItems = cartItems.filter(
+      (item) => item.id !== itemToRemove.id
+    );
+    setCartItems(updatedCartItems);
+  };
   return (
     <>
       <div className="position-relative">
