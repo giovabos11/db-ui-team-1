@@ -1,4 +1,9 @@
+import React, { useState } from "react";
+
 export const Header = () => {
+    
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
     return (
         <>
         <div className="bg-light fixed-top" >
