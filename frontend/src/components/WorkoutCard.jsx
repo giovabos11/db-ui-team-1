@@ -1,11 +1,12 @@
 import { useState } from "react";
 
-export const WorkoutCard = ({ name, id, bodyPart, addToCart, img, setCartItems, cartItems }) => {
+export const WorkoutCard = ({ name, id, bodyPart, img, setCartItems, cartItems }) => {
+ 
 
-  const handleAddToCart = () => {
+  const addToCart = () => {
     const itemPresent = cartItems.some(cartItems => cartItems.id === id);
     if(!itemPresent){
-    addToCart({ name, id, bodyPart });
+      setCartItems([...cartItems, {name, id, bodyPart}]);
     }
   };
 
@@ -15,7 +16,7 @@ export const WorkoutCard = ({ name, id, bodyPart, addToCart, img, setCartItems, 
       <h2>{name}</h2>
       <p>Body Part: {bodyPart}</p>
       <div id="clear"></div>
-      <button id="add-cart-button" type="button" onClick={handleAddToCart}>
+      <button id="add-cart-button" type="button" onClick={addToCart}>
         Add to Workout
       </button>
     </div>
