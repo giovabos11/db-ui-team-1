@@ -1,11 +1,11 @@
 import "./App.css";
 import axios from "axios";
 import { WorkoutGallery } from "./components/WorkoutGallery";
-import { Header } from "./components/Header";
+import { Homepage } from "./components/Homepage";
 function App() {
-    const url = "http://localhost:8000";
+    const url = "http://localhost:8000/";
 
-    
+
 
     const checkAPI = () => {
         axios
@@ -71,16 +71,12 @@ function App() {
             });
     };
 
-    
+
     return (
         <div className="App">
-            
-           
-            <WorkoutGallery>
-                
-            </WorkoutGallery>
 
-            
+            <Homepage></Homepage>
+
         </div>
     );
 }
