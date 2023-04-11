@@ -13,7 +13,7 @@ export const Cart = ({cartItems, removeFromCart}) => {
           <button
           style={{ fontSize: "10px"  }}
 
-          className="btn btn-danger p-0 mx-1"
+          className="btn btn-danger p-1 mx-1"
           onClick={() => removeFromCart(item)}>Remove</button></li>
         ))}
       </ul>
