@@ -1,6 +1,7 @@
 import "./App.css";
 import axios from "axios";
 import { WorkoutGallery } from "./components/WorkoutGallery";
+import { Header } from "./components/Header";
 function App() {
     const url = "http://localhost:8000";
 
@@ -78,13 +79,8 @@ function App() {
 
     return (
         <div className="App">
-            <h1>Hello World!</h1>
-            <button onClick={checkAPI}>Check API</button>
-            <button onClick={sendJSON}>Send JSON</button>
-            <button onClick={sendUser}>Send User to DB</button>
-            <button onClick={getUsers}>Get users from DB</button>
-            <button onClick={clearUsers}>Clear Users in DB</button>
             
+            <Header></Header>
             <WorkoutGallery>
                 
             </WorkoutGallery>
