@@ -4,12 +4,20 @@ import { Sidebar } from "./Sidebar";
 
 export const Profile = () => {
   return (
-    <>
-      <div className="" >
+    <div className="" style={{ overflow: "" }}>
+      <div>
         <Header />
       </div>
-
-      <Sidebar></Sidebar>
-    </>
+      <div className="">
+        <div className="">
+          <div>
+            <Sidebar />
+          </div>
+        </div>
+        <div className="">
+          <p className="" >Welcome to your profile. </p>
+        </div>
+      </div>
+    </div>
   );
 };

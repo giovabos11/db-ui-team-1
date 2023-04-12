@@ -11,7 +11,7 @@ export const Header = ({ cartItems, setCartItems }) => {
   
 
   return (
-    <div style={{ marginBottom: "4rem" }}>
+    <div style={{  height:"6.8vh"}}>
     <div className="bg-light fixed-top" >
       <div className="d-flex justify-content-between py-1">
         <h5 className="m-3">Workout App</h5>
