@@ -12,14 +12,15 @@ export const Card = ({ name, id, bodyPart, img, setCartItems, cartItems }) => {
 
   return <>
     <div className="card" >
-      <img className="card-img-top" style={{height:"12rem", width:"26.2rem"}} src={img}></img>
-      <div className="card-body">
+      <img className="card-img-top " style={{height:"12rem", width:"26.2rem"}} src={img}></img>
+      <div className="card-body bg-light">
         <h2 className="card-title">{name}</h2>
         <p className="card-text">Body Part: {bodyPart}</p>
-      </div>
-      <button className="btn btn-outline-success btn-sm" type="button" onClick={addToCart}>
+        <button className="btn btn-outline-success btn-sm" type="button" onClick={addToCart}>
         Add to Workout
       </button>
+      </div>
+      
     </div>
 
   </>

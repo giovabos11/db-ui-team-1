@@ -16,11 +16,11 @@ export const WorkoutGallery = () => {
       </div>
       <div className="">
         <h1 className="text-center">Exercise Gallery</h1>
-        <div className="m-3">
+        <div className="m-3 text-center">
           <button className="btn btn-outline-primary m-2">Workouts</button>
           <button className="btn btn-outline-primary m-2">Exercises</button>
         </div>
-        <div className="input-group container p-3">
+        <div className="input-group container pb-3">
           <input type="text" className="form-control" placeholder="Search" />
           <div className="input-group-append">
             <button className="btn btn-primary" type="button" id="searchButton">
