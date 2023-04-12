@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const WorkoutCard = ({ name, id, bodyPart, img, setCartItems, cartItems }) => {
+export const Card = ({ name, id, bodyPart, img, setCartItems, cartItems }) => {
 
 
   const addToCart = () => {
@@ -12,12 +12,12 @@ export const WorkoutCard = ({ name, id, bodyPart, img, setCartItems, cartItems }
 
   return <>
     <div className="card" >
-      <img className="card-img-top" id="workoutPic" style={{height:"6rem", width:"6rem"}} src={img}></img>
+      <img className="card-img-top" style={{height:"12rem", width:"26.2rem"}} src={img}></img>
       <div className="card-body">
         <h2 className="card-title">{name}</h2>
         <p className="card-text">Body Part: {bodyPart}</p>
       </div>
-      <button id="add-cart-button" type="button" onClick={addToCart}>
+      <button className="btn btn-outline-success btn-sm" type="button" onClick={addToCart}>
         Add to Workout
       </button>
     </div>

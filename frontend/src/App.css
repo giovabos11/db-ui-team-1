@@ -1,5 +1,6 @@
 *{
   font-size: 12pt;
+  box-sizing: border-box;
 }
 .App {
   text-align: center;
@@ -7,15 +8,9 @@
 
 .workout-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); 
+  grid-template-columns: repeat(3, 1fr); 
   gap: 1rem; 
 }
-
-
-
-
-
-
 .cart-dropdown {
   opacity: 0;
   visibility: hidden;
