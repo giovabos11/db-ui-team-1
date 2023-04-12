@@ -3,7 +3,7 @@ import { Cart } from "./Cart";
 import { ProfileCard } from "./ProfileCard";
 
 export const Header = ({ cartItems, setCartItems }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const finalizeWorkout = () =>{
     setCartItems([]);
