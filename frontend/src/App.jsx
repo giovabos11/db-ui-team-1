@@ -78,7 +78,7 @@ function App() {
     return (
         <div className="App">
 
-            <ExerciseGallery></ExerciseGallery>
+            <Profile></Profile>
         </div>
     );
 }

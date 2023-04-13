@@ -4,8 +4,8 @@ import { ProfileCard } from "../ProfileComponents/ProfileCard";
 
 export const Header = ({ cartItems, setCartItems }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [inExercise, setInExercise] = useState(true);
-  const [inWorkout, setInWorkout] = useState(false);
+  const [inExercise, setInExercise] = useState(false);
+  const [inWorkout, setInWorkout] = useState(true);
 
 
   const finalizeWorkout = () =>{
@@ -40,7 +40,9 @@ export const Header = ({ cartItems, setCartItems }) => {
           )}
           {isLoggedIn && inWorkout && (
             <>
-
+          <ProfileCard 
+              firstName="Paul"
+              />
             </>
           )}
           {!isLoggedIn && (
