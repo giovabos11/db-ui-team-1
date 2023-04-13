@@ -1,8 +1,9 @@
 import "./App.css";
 import axios from "axios";
-import { WorkoutGallery } from "./components/ExerciseGallery";
-import { Homepage } from "./components/Homepage";
-import { Profile} from "./components/Profile"
+import { ExerciseGallery } from "./components/GalleryComponents/ExerciseGallery";
+import { Homepage } from "./components/HomepageComponents/Homepage";
+import { Profile} from "./components/ProfileComponents/Profile"
+import { GalleryCard } from "./components/GalleryComponents/GalleryCard";
 function App() {
     const url = "http://localhost:8000/";
 

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { GalleryCard } from "./GalleryCard";
 import { Cart } from "./Cart";
-import { Header } from "./Header"
-export const WorkoutGallery = () => {
+import { Header } from "../GlobalComponents/Header"
+export const ExerciseGallery = () => {
   const [cartItems, setCartItems] = useState([]);
 
 

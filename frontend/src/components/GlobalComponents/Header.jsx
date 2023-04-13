@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Cart } from "./Cart";
-import { ProfileCard } from "./ProfileCard";
+import { Cart } from "../GalleryComponents/Cart";
+import { ProfileCard } from "../ProfileComponents/ProfileCard";
 
 export const Header = ({ cartItems, setCartItems }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
