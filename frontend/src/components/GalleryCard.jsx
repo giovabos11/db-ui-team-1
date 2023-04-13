@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const Card = ({ name, id, bodyPart, img, setCartItems, cartItems }) => {
+export const GalleryCard = ({ name, id, bodyPart, img, setCartItems, cartItems }) => {
 
 
   const addToCart = () => {

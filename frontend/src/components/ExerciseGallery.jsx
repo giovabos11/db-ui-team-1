@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Card } from "./Card";
+import { GalleryCard } from "./GalleryCard";
 import { Cart } from "./Cart";
 import { Header } from "./Header"
 export const WorkoutGallery = () => {
@@ -29,22 +29,22 @@ export const WorkoutGallery = () => {
           </div>
         </div>
         <div className="container workout-grid">
-          <Card name="Bench Press" id="1" bodyPart="Chest" img="https://static.strengthlevel.com/images/illustrations/bench-press-1000x1000.jpg"
+          <GalleryCard name="Bench Press" id="1" bodyPart="Chest" img="https://static.strengthlevel.com/images/illustrations/bench-press-1000x1000.jpg"
             cartItems={cartItems}
             setCartItems={setCartItems} />
-          <Card name="Leg Press" id="2" bodyPart="Leg" img="https://www.shutterstock.com/image-illustration/inclined-leg-press-3d-illustration-260nw-434632384.jpg"
+          <GalleryCard name="Leg Press" id="2" bodyPart="Leg" img="https://www.shutterstock.com/image-illustration/inclined-leg-press-3d-illustration-260nw-434632384.jpg"
             cartItems={cartItems}
             setCartItems={setCartItems} />
-          <Card name="Chest Press" id="3" bodyPart="Chest" img="https://www.inspireusafoundation.org/wp-content/uploads/2022/05/chest-press-vs-bench-press-1024x576.jpg"
+          <GalleryCard name="Chest Press" id="3" bodyPart="Chest" img="https://www.inspireusafoundation.org/wp-content/uploads/2022/05/chest-press-vs-bench-press-1024x576.jpg"
             cartItems={cartItems}
             setCartItems={setCartItems} />
-          <Card name="Lat Pulldown" id="4" bodyPart="Chest" img="https://www.shutterstock.com/image-illustration/reverse-grip-lat-pulldown-3d-260nw-430936258.jpg"
+          <GalleryCard name="Lat Pulldown" id="4" bodyPart="Chest" img="https://www.shutterstock.com/image-illustration/reverse-grip-lat-pulldown-3d-260nw-430936258.jpg"
             cartItems={cartItems}
             setCartItems={setCartItems} />
-          <Card name="Something XYZ" id="5" bodyPart="Back" img="https://www.shutterstock.com/image-illustration/reverse-grip-lat-pulldown-3d-260nw-430936258.jpg"
+          <GalleryCard name="Something XYZ" id="5" bodyPart="Back" img="https://www.shutterstock.com/image-illustration/reverse-grip-lat-pulldown-3d-260nw-430936258.jpg"
             cartItems={cartItems}
             setCartItems={setCartItems} />
-          <Card name="Random" id="6" bodyPart="Back" img="https://www.shutterstock.com/image-illustration/reverse-grip-lat-pulldown-3d-260nw-430936258.jpg"
+          <GalleryCard name="Random" id="6" bodyPart="Back" img="https://www.shutterstock.com/image-illustration/reverse-grip-lat-pulldown-3d-260nw-430936258.jpg"
             cartItems={cartItems}
             setCartItems={setCartItems} />
         </div>

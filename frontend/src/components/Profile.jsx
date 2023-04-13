@@ -25,10 +25,12 @@ export const Profile = () => {
         setInWorkouts={setInWorkouts}
         />
         <div className="text-center flex-grow-1">
+        <div className="container border rounded">
           {inFood && <FoodDetails/>}
           {inSettings && <Settings/>}
           {inCoach && <CoachInfo/>}
           {inWorkouts && <MyWorkouts/>}
+          </div>
         </div>
       </div>
 

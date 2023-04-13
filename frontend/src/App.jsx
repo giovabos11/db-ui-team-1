@@ -1,6 +1,6 @@
 import "./App.css";
 import axios from "axios";
-import { WorkoutGallery } from "./components/WorkoutGallery";
+import { WorkoutGallery } from "./components/ExerciseGallery";
 import { Homepage } from "./components/Homepage";
 import { Profile} from "./components/Profile"
 function App() {
