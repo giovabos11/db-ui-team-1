@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { Cart } from "../GalleryComponents/Cart";
+import { Cart } from "../ExerciseComponents/Cart";
 import { ProfileCard } from "../ProfileComponents/ProfileCard";
 
 export const Header = ({ cartItems, setCartItems }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [inExercise, setInExercise] = useState(true);
+  const [inWorkout, setInWorkout] = useState(false);
+
 
   const finalizeWorkout = () =>{
     setCartItems([]);
@@ -12,13 +15,15 @@ export const Header = ({ cartItems, setCartItems }) => {
 
   return (
     <div style={{  height:"6.8vh ", width:"100vh"}}>
-    <div className="bg-light fixed-top" >
+    <div className="bg fixed-top" style ={{backgroundColor:"#D6E3F8"}} >
       <div className="d-flex justify-content-between py-1">
         <h5 className="m-3">Workout App</h5>
         <div className="d-flex mx-4 align-items-center">
-          {isLoggedIn && (
+          {isLoggedIn && inExercise && (
             <>
-              <ProfileCard />
+              <ProfileCard 
+              firstName="Paul"
+              />
               <div className="cart-container mx-5 m-3">
                 <h5 className="text-center">My Workout</h5>
                 <Cart cartItems={cartItems} setCartItems={setCartItems} />
@@ -32,6 +37,11 @@ export const Header = ({ cartItems, setCartItems }) => {
               
             </>
             
+          )}
+          {isLoggedIn && inWorkout && (
+            <>
+
+            </>
           )}
           {!isLoggedIn && (
             <>
@@ -51,6 +61,7 @@ export const Header = ({ cartItems, setCartItems }) => {
               </a>
             </>
           )}
+          
         </div>
       </div>
     </div>

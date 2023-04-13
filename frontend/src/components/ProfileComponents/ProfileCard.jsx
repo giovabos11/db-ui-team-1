@@ -1,8 +1,8 @@
-export const ProfileCard = () => {
+export const ProfileCard = ({firstName}) => {
     return (
         <div className="d-flex align-items-center">
             <div className="text-center">
-                <p className="mb-0">Name</p>
+                <p className="mb-0">{firstName}</p>
                 <a>My Profile</a>
             </div>
             <img

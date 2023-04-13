@@ -1,9 +1,10 @@
 import "./App.css";
 import axios from "axios";
-import { ExerciseGallery } from "./components/GalleryComponents/ExerciseGallery";
+import { ExerciseGallery } from "./components/ExerciseComponents/ExerciseGallery";
 import { Homepage } from "./components/HomepageComponents/Homepage";
 import { Profile} from "./components/ProfileComponents/Profile"
-import { GalleryCard } from "./components/GalleryComponents/GalleryCard";
+import { GalleryCard } from "./components/ExerciseComponents/ExerciseCard";
+import { WorkoutGallery } from "./components/WorkoutComponents/WorkoutGallery";
 function App() {
     const url = "http://localhost:8000/";
 
@@ -77,7 +78,7 @@ function App() {
     return (
         <div className="App">
 
-            <Profile></Profile>
+            <ExerciseGallery></ExerciseGallery>
         </div>
     );
 }

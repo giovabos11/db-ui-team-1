@@ -1,7 +1,7 @@
 export const MessageCard = ({firstName, lastName, content}) => {
     return<>
     
-    <div className="border rounded container px-4 pb-2 pt-3">
+    <div className="border rounded container bg-light px-4 pb-2 pt-3">
             <div className="d-flex">
                 
                 <p className="mx-2">{firstName}</p>

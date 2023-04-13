@@ -17,7 +17,7 @@ export const Profile = () => {
       <div>
         <Header />
       </div>
-      <div className="d-flex flex-grow-0 justify-content-center align-items-center">
+      <div className="d-flex flex-grow-0 justify-content-center align-items-center" style={{backgroundColor:"#b7ccdf"}}>
         <Sidebar 
         firstName="Paul"
         setInSettings={setInSettings}
@@ -26,7 +26,7 @@ export const Profile = () => {
         setInWorkouts={setInWorkouts}
         />
         <div className="text-center flex-grow-1">
-        <div className="container border rounded">
+        <div className="container border rounded " style ={{backgroundColor:"#F5F5DC"}}>
           {inFood && <FoodDetails/>}
           {inSettings && <Settings/>}
           {inCoach && <CoachInfo/>}
