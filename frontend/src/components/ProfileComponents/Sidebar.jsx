@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Sidebar = ({inSettings, setInSettings, inFood, setInFood, inCoach, setInCoach, inWorkouts, setInWorkouts}) => {
+export const Sidebar = ({setInSettings, setInFood, setInCoach, setInWorkouts, firstName}) => {
     const changeTabs = (openTab) => {
         // Update state variables based on the selected tab
         switch (openTab) {
@@ -41,7 +41,7 @@ export const Sidebar = ({inSettings, setInSettings, inFood, setInFood, inCoach, 
                 style={{ width: "30vh", height: "93.2vh" }}>
 
                 <img src="path/to/image.jpg" alt="Profile Image" />
-                <p className="text-white">Hi, name</p>
+                <p className="text-white">Hi, {firstName}</p>
 
                 <div className="d-flex flex-column align-items-center container-fluid">
                     <button 

@@ -19,6 +19,7 @@ export const Profile = () => {
       </div>
       <div className="d-flex flex-grow-0 justify-content-center align-items-center">
         <Sidebar 
+        firstName="Paul"
         setInSettings={setInSettings}
         setInFood={setInFood}
         setInCoach={setInCoach}
