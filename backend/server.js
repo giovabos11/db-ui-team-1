@@ -79,6 +79,24 @@ app.post("/users/clear", (req, res) => {
     });
 });
 
+app.get("/gallery/exercises", (req,res) => {
+    const query = `SELECT category, name FROM exersises WHERE muscle_group ='${muscle_group}'`
+    connection.query(query,(err,rows,fields) =>{
+        if (err) throw err;
+
+        res.status(200);
+        res.send("Successfully sent exercises by muscle_group!");
+
+    });
+    
+    return rows; 
+
+});
+
+
+
+
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
