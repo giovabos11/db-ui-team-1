@@ -16,12 +16,12 @@ export const Cart = ({ cartItems, setCartItems }) => {
       <div className="position-relative">
         <div className="rounded justify-content-center align-items-center position-absolute bg-light border  cart-dropdown">
           {cartItems.length === 0 ? (
-            <p className="m-0">Your cart is empty.</p>
+            <p className="m-0 p-1 text-center">Your workout is empty.</p>
           ) : (
             <>
               <ul className="list-unstyled m-0">
                 {cartItems.map((item, index) => (
-                  <li className="my-0 border-bottom pb-2" key={index}>
+                  <li className="my-0 border-bottom pb-2 text-center" key={index}>
                     <h6 className="d-inline-block">{item.name}</h6>
                     <button
                       style={{ fontSize: "10px" }}

@@ -4,7 +4,7 @@ import { Sidebar } from "./Sidebar";
 
 export const Profile = () => {
   return (
-    <div className="" style={{ overflow: "" }}>
+    <div className="" style={{ }}>
       <div>
         <Header />
       </div>
@@ -14,9 +14,7 @@ export const Profile = () => {
             <Sidebar />
           </div>
         </div>
-        <div className="">
-          <p className="" >Welcome to your profile. </p>
-        </div>
+  
       </div>
     </div>
   );

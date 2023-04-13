@@ -3,7 +3,7 @@ import { Cart } from "./Cart";
 import { ProfileCard } from "./ProfileCard";
 
 export const Header = ({ cartItems, setCartItems }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const finalizeWorkout = () =>{
     setCartItems([]);
@@ -11,7 +11,7 @@ export const Header = ({ cartItems, setCartItems }) => {
   
 
   return (
-    <div style={{  height:"6.8vh"}}>
+    <div style={{  height:"6.8vh ", width:"100vh"}}>
     <div className="bg-light fixed-top" >
       <div className="d-flex justify-content-between py-1">
         <h5 className="m-3">Workout App</h5>

@@ -5,7 +5,7 @@ export const Sidebar = () => {
         <>
 
             <div
-                className=" bg-dark p-3 position-absolute"
+                className=" bg-dark p-3 position-vs"
                 style={{ width: "30vh", height: "93.2vh" }}>
 
                 <img src="path/to/image.jpg" alt="Profile Image" />
