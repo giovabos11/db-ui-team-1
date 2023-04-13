@@ -1,7 +1,7 @@
 export const Settings = () => {
-    return (
-
-        <div className="container border rounded">
+    return <>
+    <div className="container border rounded">
+        <div className="">
             <h4>Height</h4>
             <input type="text-area" />
 
@@ -25,5 +25,7 @@ export const Settings = () => {
             <h4>Password</h4>
             <input type="text-area" />
         </div>
-    );
+        <button className="m-2 btn btn-primary">Update</button>
+        </div>
+    </>
 };

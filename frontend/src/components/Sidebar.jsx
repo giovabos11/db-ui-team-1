@@ -12,10 +12,13 @@ export const Sidebar = () => {
                 <p className="text-white">Hi, name</p>
 
                 <div className="d-flex flex-column align-items-center container-fluid">
-                    <button className="my-3">Settings</button>
-                    <button className="my-3">My Workouts</button>
-                    <button className="my-3">My Coach</button>
-                    <button className="my-3">My Food</button>
+                    <button className="btn btn-success my-3">Settings</button>
+                    
+                    <button className="btn btn-success my-3">My Food</button>
+
+                    <button className="btn btn-success my-3">My Coach</button>
+
+                    <button className="btn btn-success my-3">My Workouts</button>
                 </div>
             </div>
         </>
