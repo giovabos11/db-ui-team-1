@@ -63,6 +63,7 @@ export const NewAccount = () => {
   return <>
   <Header></Header>
   <div className="" style={{backgroundColor:"#b7ccdf", minHeight:"100vh", minWidth:"100vh"}}>
+  <div className="py-3">
     <div className="container " >
       <h2 className="mb-4  text-center">Sign Up!</h2>
       {errorMessage && <p className="text-danger">{errorMessage}</p>}
@@ -130,16 +131,13 @@ export const NewAccount = () => {
             onChange={handleAgeChange}
           />
         </Form.Group>
-
-        <Button
-          variant="primary"
-          type="submit"
-          className="btn-warning d-flex justify-content-center container w-25"
-        >
+        <div className="d-flex justify-content-center m-4">
+        <Button variant="" type="submit" className="text-white d-flex justify-content-center mx-2" style={{backgroundColor:"#FECBA5", outlineColor:"#FECBA5"}}>
           Create Account
         </Button>
-
+        </div>
       </Form>
+    </div>
     </div>
     </div>
   </>

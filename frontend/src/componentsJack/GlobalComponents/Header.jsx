@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Cart } from "../ExerciseComponents/Cart";
 import { ProfileCard } from "../ProfileComponents/ProfileCard";
 
-export const Header = ({ cartItems, setCartItems, inExercise, inWorkout }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+export const Header = ({ cartItems, setCartItems, inExercise, inWorkout, isLoggedIn }) => {
+  
 
 
   const finalizeWorkout = () =>{
@@ -46,14 +46,14 @@ export const Header = ({ cartItems, setCartItems, inExercise, inWorkout }) => {
           {!isLoggedIn && (
             <>
               <a
-                href="#"
+                href="login"
                 className="my-1 py-2 px-4"
                 style={{ textDecoration: "none", color: "#003F7D", fontWeight: "bold" }}
               >
                 Login
               </a>
               <a
-                href="#"
+                href="signup"
                 className="my-1 py-2 px-4 text-white rounded"
                 style={{ backgroundColor: "orange", textDecoration: "none", fontWeight: "bold" }}
               >
