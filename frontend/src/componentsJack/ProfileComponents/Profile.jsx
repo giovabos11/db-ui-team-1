@@ -6,7 +6,7 @@ import { FoodDetails } from "./FoodDetails";
 import { useState } from "react";
 import { CoachInfo } from "./CoachInfo";
 import { MyWorkouts } from "./MyWorkouts";
-export const Profile = () => {
+export const Profile = (profileId) => {
   const [inSettings, setInSettings] = useState(true);
   const [inFood, setInFood] = useState(false);
   const [inCoach, setInCoach] = useState(false);

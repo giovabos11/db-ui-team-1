@@ -1,14 +1,11 @@
 import "./App.css";
 import axios from "axios";
-import { ExerciseGallery } from "./componentsJack/ExerciseComponents/ExerciseGallery";
 import { Homepage } from "./componentsJack/HomepageComponents/Homepage";
-import { Profile} from "./componentsJack/ProfileComponents/Profile"
-import { GalleryCard } from "./componentsJack/ExerciseComponents/ExerciseCard";
-import { WorkoutGallery } from "./componentsJack/WorkoutComponents/WorkoutGallery";
-
+import { Profile } from "./componentsJack/ProfileComponents/Profile"
 import { WholeGallery } from "./componentsJack/WholeGallery";
-import {Login} from "./componentsJack/Login"
+import { Login } from "./componentsJack/Login"
 import { NewAccount } from "./componentsJack/NewAccount";
+import { Router } from "./componentsJack/Router";
 
 
 function App() {
@@ -82,10 +79,7 @@ function App() {
 
 
     return (
-        <div className="App">
-
-            <NewAccount></NewAccount>
-        </div>
+        <Router />
     );
 }
 
