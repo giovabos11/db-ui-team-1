@@ -5,6 +5,7 @@ import { Homepage } from "./components/HomepageComponents/Homepage";
 import { Profile} from "./components/ProfileComponents/Profile"
 import { GalleryCard } from "./components/ExerciseComponents/ExerciseCard";
 import { WorkoutGallery } from "./components/WorkoutComponents/WorkoutGallery";
+import { WholeGallery } from "./components/WholeGallery";
 function App() {
     const url = "http://localhost:8000/";
 
@@ -78,7 +79,7 @@ function App() {
     return (
         <div className="App">
 
-            <Profile></Profile>
+            <WholeGallery></WholeGallery>
         </div>
     );
 }

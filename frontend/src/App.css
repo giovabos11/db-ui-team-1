@@ -11,6 +11,11 @@
   grid-template-columns: repeat(3, 1fr); 
   gap: 1rem; 
 }
+.workout-grid2 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); 
+  gap: 1rem; 
+}
 .cart-dropdown {
   opacity: 0;
   visibility: hidden;
