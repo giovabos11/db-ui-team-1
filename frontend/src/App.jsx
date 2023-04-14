@@ -5,7 +5,12 @@ import { Homepage } from "./componentsJack/HomepageComponents/Homepage";
 import { Profile} from "./componentsJack/ProfileComponents/Profile"
 import { GalleryCard } from "./componentsJack/ExerciseComponents/ExerciseCard";
 import { WorkoutGallery } from "./componentsJack/WorkoutComponents/WorkoutGallery";
+
 import { WholeGallery } from "./componentsJack/WholeGallery";
+import {Login} from "./components/login"
+import { NewAccount } from "./components";
+
+
 function App() {
     const url = "http://localhost:8000/";
 
@@ -83,13 +88,6 @@ function App() {
         </div>
     );
 }
-import {Login} from "./components/login"
-import { NewAccount } from "./components";
 
-export function App() {
-  return <>
-    <Login />
-  </>;
-}
 
 export default App;
