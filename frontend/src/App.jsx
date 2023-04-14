@@ -3,7 +3,7 @@ import { NewAccount } from "./components";
 
 export function App() {
   return <>
-    <NewAccount />
+    <Login />
   </>;
 }
 

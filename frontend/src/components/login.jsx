@@ -56,7 +56,7 @@ export const Login = () => {
             onChange={handlePasswordChange}
           />
         </Form.Group>
-        <Button variant="primary" type="submit" className="btn-primary d-flex justify-content-center">
+        <Button variant="primary" type="submit" className="btn-warning d-flex justify-content-center">
           Log in
         </Button>
       </Form>

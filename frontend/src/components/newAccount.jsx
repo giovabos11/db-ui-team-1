@@ -87,6 +87,7 @@ export const NewAccount = () => {
             value={firstName}
             onChange={handleFirstNameChange}
           />
+
         </Form.Group>
         <Form.Group controlId="formBasicLastName" className="mb-4">
           <Form.Label>Last Name</Form.Label>
@@ -96,6 +97,7 @@ export const NewAccount = () => {
             value={lastName}
             onChange={handleLastNameChange}
           />
+
         </Form.Group>
         <Form.Group controlId="formBasicEmail" className="mb-4">
           <Form.Label>Email</Form.Label>
@@ -106,6 +108,7 @@ export const NewAccount = () => {
             onChange={handleEmailChange}
           />
         </Form.Group>
+
         <Form.Group controlId="formBasicPassword" className="mb-4">
           <Form.Label>Password</Form.Label>
           <Form.Control
@@ -115,6 +118,7 @@ export const NewAccount = () => {
             onChange={handlePasswordChange}
           />
         </Form.Group>
+
         <Form.Group controlId="formBasicAge" className="mb-4">
           <Form.Label>Age</Form.Label>
           <Form.Control
@@ -124,13 +128,15 @@ export const NewAccount = () => {
             onChange={handleAgeChange}
           />
         </Form.Group>
+
         <Button
           variant="primary"
           type="submit"
-          className="btn-primary d-flex justify-content-center"
+          className="btn-warning d-flex justify-content-center"
         >
           Create Account
         </Button>
+
       </Form>
     </div>
   );
