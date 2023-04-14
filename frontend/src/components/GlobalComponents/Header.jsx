@@ -22,7 +22,7 @@ export const Header = ({ cartItems, setCartItems, inExercise, inWorkout }) => {
               <ProfileCard 
               firstName="Paul"
               />
-              <div className="cart-container mx-5 m-3">
+              <div className="cart-container mx-5">
                 <h5 className="text-center">My Workout</h5>
                 <Cart cartItems={cartItems} setCartItems={setCartItems} />
               </div>
