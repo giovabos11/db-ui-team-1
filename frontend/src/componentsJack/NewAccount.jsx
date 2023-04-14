@@ -2,9 +2,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { Form, Button } from "react-bootstrap";
-import "./custom.css";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Header } from "./GlobalComponents/Header";
 
 export const NewAccount = () => {
   const [firstName, setFirstName] = useState("");
@@ -60,13 +60,15 @@ export const NewAccount = () => {
     setRegisterAs(event.target.value);
   };
 
-  return (
-    <div className="container mt-5">
-      <h2 className="mb-4 text-center">Sign Up!</h2>
+  return <>
+  <Header></Header>
+  <div className="" style={{backgroundColor:"#b7ccdf", minHeight:"100vh", minWidth:"100vh"}}>
+    <div className="container " >
+      <h2 className="mb-4  text-center">Sign Up!</h2>
       {errorMessage && <p className="text-danger">{errorMessage}</p>}
 
       <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formBasicAccountType" className="mb-4">
+        <Form.Group controlId="formBasicAccountType" className="mb-4 w-25 container w-25 container">
           <Form.Label>Account Type</Form.Label>
           <Form.Control
             as="select"
@@ -79,7 +81,7 @@ export const NewAccount = () => {
           </Form.Control>
         </Form.Group>
 
-        <Form.Group controlId="formBasicFirstName" className="mb-4">
+        <Form.Group controlId="formBasicFirstName" className="mb-4 w-25 container w-25 container">
           <Form.Label>First Name</Form.Label>
           <Form.Control
             type="text"
@@ -89,7 +91,7 @@ export const NewAccount = () => {
           />
 
         </Form.Group>
-        <Form.Group controlId="formBasicLastName" className="mb-4">
+        <Form.Group controlId="formBasicLastName" className="mb-4 w-25 container">
           <Form.Label>Last Name</Form.Label>
           <Form.Control
             type="text"
@@ -99,7 +101,7 @@ export const NewAccount = () => {
           />
 
         </Form.Group>
-        <Form.Group controlId="formBasicEmail" className="mb-4">
+        <Form.Group controlId="formBasicEmail" className="mb-4 w-25 container">
           <Form.Label>Email</Form.Label>
           <Form.Control
             type="email"
@@ -109,7 +111,7 @@ export const NewAccount = () => {
           />
         </Form.Group>
 
-        <Form.Group controlId="formBasicPassword" className="mb-4">
+        <Form.Group controlId="formBasicPassword" className="mb-4 w-25 container">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
@@ -119,7 +121,7 @@ export const NewAccount = () => {
           />
         </Form.Group>
 
-        <Form.Group controlId="formBasicAge" className="mb-4">
+        <Form.Group controlId="formBasicAge" className="mb-4 w-25 container">
           <Form.Label>Age</Form.Label>
           <Form.Control
             type="number"
@@ -132,12 +134,13 @@ export const NewAccount = () => {
         <Button
           variant="primary"
           type="submit"
-          className="btn-warning d-flex justify-content-center"
+          className="btn-warning d-flex justify-content-center container w-25"
         >
           Create Account
         </Button>
 
       </Form>
     </div>
-  );
+    </div>
+  </>
 };
