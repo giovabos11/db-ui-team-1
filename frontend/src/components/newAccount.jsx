@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Login } from "./login";
 import axios from "axios";
 import { Form, Button } from "react-bootstrap";
 import "./custom.css";
@@ -14,6 +15,7 @@ export const NewAccount = () => {
   const [age, setAge] = useState("");
   const [registerAs, setRegisterAs] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [hasAccount, setHasAccount] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -60,84 +62,103 @@ export const NewAccount = () => {
     setRegisterAs(event.target.value);
   };
 
+  const handleAccountClick = () => {
+    setHasAccount(true);
+  };
+  
+
   return (
     <div className="container mt-5">
-      <h2 className="mb-4 text-center">Sign Up!</h2>
-      {errorMessage && <p className="text-danger">{errorMessage}</p>}
-
-      <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formBasicAccountType" className="mb-4">
-          <Form.Label>Account Type</Form.Label>
-          <Form.Control
-            as="select"
-            onChange={handleRegisterAsChange}
-            value={registerAs}
-          >
-            <option value="">Select account type</option>
-            <option value="trainee">Trainee</option>
-            <option value="coach">Coach</option>
-          </Form.Control>
-        </Form.Group>
-
-        <Form.Group controlId="formBasicFirstName" className="mb-4">
-          <Form.Label>First Name</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter first name"
-            value={firstName}
-            onChange={handleFirstNameChange}
-          />
-
-        </Form.Group>
-        <Form.Group controlId="formBasicLastName" className="mb-4">
-          <Form.Label>Last Name</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter last name"
-            value={lastName}
-            onChange={handleLastNameChange}
-          />
-
-        </Form.Group>
-        <Form.Group controlId="formBasicEmail" className="mb-4">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter email"
-            value={email}
-            onChange={handleEmailChange}
-          />
-        </Form.Group>
-
-        <Form.Group controlId="formBasicPassword" className="mb-4">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Enter Password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </Form.Group>
-
-        <Form.Group controlId="formBasicAge" className="mb-4">
-          <Form.Label>Age</Form.Label>
-          <Form.Control
-            type="number"
-            placeholder="Enter age"
-            value={age}
-            onChange={handleAgeChange}
-          />
-        </Form.Group>
-
-        <Button
-          variant="primary"
-          type="submit"
-          className="btn-warning d-flex justify-content-center"
-        >
-          Create Account
-        </Button>
-
-      </Form>
+      {hasAccount ? (
+        <Login />
+      ) : (
+        <>
+          <h2 className="mb-4 text-center">Sign Up!</h2>
+          {errorMessage && <p className="text-danger">{errorMessage}</p>}
+  
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="formBasicAccountType" className="mb-4">
+              <Form.Label>Account Type</Form.Label>
+              <Form.Control
+                as="select"
+                onChange={handleRegisterAsChange}
+                value={registerAs}
+              >
+                <option value="">Select account type</option>
+                <option value="trainee">Trainee</option>
+                <option value="coach">Coach</option>
+              </Form.Control>
+            </Form.Group>
+  
+            <Form.Group controlId="formBasicFirstName" className="mb-4">
+              <Form.Label>First Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter first name"
+                value={firstName}
+                onChange={handleFirstNameChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="formBasicLastName" className="mb-4">
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter last name"
+                value={lastName}
+                onChange={handleLastNameChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="formBasicEmail" className="mb-4">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                value={email}
+                onChange={handleEmailChange}
+              />
+            </Form.Group>
+  
+            <Form.Group controlId="formBasicPassword" className="mb-4">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Enter Password"
+                value={password}
+                onChange={handlePasswordChange}
+              />
+            </Form.Group>
+  
+            <Form.Group controlId="formBasicAge" className="mb-4">
+              <Form.Label>Age</Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="Enter age"
+                value={age}
+                onChange={handleAgeChange}
+              />
+            </Form.Group>
+  
+            <Button
+              variant="primary"
+              type="submit"
+              className="btn-warning d-flex justify-content-center"
+            >
+              Create Account
+            </Button>
+  
+            <p className="mt-4 text-center">
+              Already have an account?{" "}
+              <span
+                className="text-primary"
+                style={{ cursor: "pointer" }}
+                onClick={handleAccountClick}
+              >
+                Log in
+              </span>
+            </p>
+          </Form>
+        </>
+      )}
     </div>
-  );
+  );  
 };
