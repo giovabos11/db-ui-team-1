@@ -1,11 +1,11 @@
 import "./App.css";
 import axios from "axios";
-import { ExerciseGallery } from "./components/ExerciseComponents/ExerciseGallery";
-import { Homepage } from "./components/HomepageComponents/Homepage";
-import { Profile} from "./components/ProfileComponents/Profile"
-import { GalleryCard } from "./components/ExerciseComponents/ExerciseCard";
-import { WorkoutGallery } from "./components/WorkoutComponents/WorkoutGallery";
-import { WholeGallery } from "./components/WholeGallery";
+import { ExerciseGallery } from "./componentsJack/ExerciseComponents/ExerciseGallery";
+import { Homepage } from "./componentsJack/HomepageComponents/Homepage";
+import { Profile} from "./componentsJack/ProfileComponents/Profile"
+import { GalleryCard } from "./componentsJack/ExerciseComponents/ExerciseCard";
+import { WorkoutGallery } from "./componentsJack/WorkoutComponents/WorkoutGallery";
+import { WholeGallery } from "./componentsJack/WholeGallery";
 function App() {
     const url = "http://localhost:8000/";
 
