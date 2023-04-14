@@ -7,8 +7,8 @@ import { GalleryCard } from "./componentsJack/ExerciseComponents/ExerciseCard";
 import { WorkoutGallery } from "./componentsJack/WorkoutComponents/WorkoutGallery";
 
 import { WholeGallery } from "./componentsJack/WholeGallery";
-import {Login} from "./components/login"
-import { NewAccount } from "./components";
+import {Login} from "./componentsJack/Login"
+import { NewAccount } from "./componentsJack/NewAccount";
 
 
 function App() {
@@ -84,7 +84,7 @@ function App() {
     return (
         <div className="App">
 
-            <WholeGallery></WholeGallery>
+            <NewAccount></NewAccount>
         </div>
     );
 }
