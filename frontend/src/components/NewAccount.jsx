@@ -14,7 +14,7 @@ export const NewAccount = () => {
   const [age, setAge] = useState("");
   const [registerAs, setRegisterAs] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
