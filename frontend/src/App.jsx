@@ -1,11 +1,10 @@
 import "./App.css";
 import axios from "axios";
-import { Homepage } from "./componentsJack/HomepageComponents/Homepage";
-import { Profile } from "./componentsJack/ProfileComponents/Profile"
-import { WholeGallery } from "./componentsJack/WholeGallery";
-import { Login } from "./componentsJack/Login"
-import { NewAccount } from "./componentsJack/NewAccount";
-import { Router } from "./componentsJack/Router";
+import { Homepage } from "./components/HomepageComponents/Homepage";
+import { Profile } from "./components/ProfileComponents/Profile"
+import { Login } from "./components/Login"
+import { NewAccount } from "./components/NewAccount";
+import { Router } from "./components/Router";
 
 
 function App() {

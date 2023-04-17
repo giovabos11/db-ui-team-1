@@ -4,13 +4,13 @@ import { Form, Button } from "react-bootstrap";
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Header } from "./GlobalComponents/Header";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 export const Login = ({}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -37,7 +37,7 @@ export const Login = ({}) => {
   return <>
 
     <Header
-      isLoggedIn={isLoggedIn}
+    
     />
 
     <div className="" style={{ backgroundColor: "#b7ccdf", minHeight: "100vh", minWidth: "100vh" }}>
@@ -71,16 +71,16 @@ export const Login = ({}) => {
               />
             </Form.Group>
             <div className="d-flex justify-content-center m-4">
-              <Button variant="" type="" className="text-white d-flex justify-content-center mx-2" style={{ backgroundColor: "#FECBA5", outlineColor: "#FECBA5" }}
-                onClick={() => {
-                  setIsLoggedIn(true)
-                }}
-              >
+            <Link to="../exercise" className="text-decoration-none">
+              <Button variant="" type="" className="text-white d-flex justify-content-center mx-2" style={{ backgroundColor: "#FECBA5", outlineColor: "#FECBA5" }}>
                 Log in
               </Button>
-              <Button variant="" type="submit" className="text-white d-flex justify-content-center mx-2" style={{ backgroundColor: "#FECBA5", outlineColor: "#FECBA5" }}>
-                Sign up
-              </Button>
+              </Link>
+              <Link to="../signup" className="text-decoration-none">
+                <Button variant="" type="submit" className="text-white d-flex justify-content-center mx-2" style={{ backgroundColor: "#FECBA5", outlineColor: "#FECBA5" }}>
+                  Sign up
+                </Button>
+              </Link>
             </div>
           </Form>
         </div>

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Header } from "../GlobalComponents/Header";
 
 export const Homepage = () => {
+  const [inHomepage, setInHomepage] = useState(true);
+  
   return (
     <>
       <Header />

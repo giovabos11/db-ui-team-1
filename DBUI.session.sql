@@ -26,13 +26,13 @@ CREATE TABLE IF NOT EXISTS Users(
   	password varchar(255) NOT NULL,
   	first_name varchar(255) NOT NULL,
     last_name varchar(255) NOT NULL,
-    age int NOT NULL,
+    age int NOT NULL
 
 );
 
 CREATE TABLE IF NOT EXISTS Coaches(
 	coach_id int AUTO_INCREMENT PRIMARY KEY,
-  rating float,
+  rating float
   	
 );
 
@@ -123,7 +123,6 @@ VALUES
     ('johndoe@example.com', 'password123', 'John', 'Doe', 25),
     ('janedoe@example.com', 'password456', 'Jane', 'Doe', 30),
     ('bobsmith@example.com', 'password789', 'Bob', 'Smith', 40);
-SELECT * FROM Users;
   
 INSERT INTO Coaches (rating)
 VALUES
@@ -132,20 +131,17 @@ VALUES
     (3),
     (4),
     (5);
-SELECT * FROM Coaches;
 
 INSERT INTO Trainees (height, weight, coach_id)
 VALUES
     (5.6, 150, (select coach_id from Coaches where rating = 5)),
     (6.1, 175, (select coach_id from Coaches where rating = 3)),
     (5.8, 140, (select coach_id from Coaches where rating = 1));
-SELECT * FROM Trainees;
 
 INSERT INTO Workouts (trainee_id, coach_id, muscle_group, duration, week_day, message, description)
 VALUES 
     (1, 1, 'Legs', 60, 'Monday', 'Remember to stretch', 'Squats, lunges, and calf raises'),
     (2, 1, 'Back and Biceps', 90, 'Tuesday', 'lat pulldowns', 'Rows, pull-ups, and curls');
-SELECT * FROM Workouts;
 
 INSERT INTO Exercises (muscle_type, excerice_name, rep_cout, set_count, workout_id)
 VALUES
@@ -182,25 +178,21 @@ VALUES
     -- ('abs', 'toe touches'),
     -- ('abs', 'dead bugs'),
     -- ('arms', 'tricep extensions');
-SELECT * FROM Exercises;
 
 INSERT INTO Foods (trainee_id, name, protein_amount, carbohidrate_amount, fat_amount, in_timestamp)
 VALUES
     (1, 'chicken breast', 25.0, 0.0, 3.5, CURRENT_TIMESTAMP),
     (2, 'brown rice', 2.5, 45.0, 1.0, CURRENT_TIMESTAMP),
     (3, 'salmon', 22.0, 0.0, 8.0, CURRENT_TIMESTAMP);
-SELECT * FROM Foods;
 
 INSERT INTO Messages (sender_id, reciever_id, content, sent_timestamp)
 VALUES
     (1, 2, 'Hello, how are you?', CURRENT_TIMESTAMP),
     (2, 1, 'Doing well, thanks! How about you?', CURRENT_TIMESTAMP);
-SELECT * FROM Messages;
 
 INSERT INTO Trainee_Workout_Plans (workout_id, trainee_id, coach_id, start_date, end_date)
 VALUES
     (1, 1, 2, '2022-02-15 10:00:00', '2022-03-15 10:00:00');
-SELECT * FROM Trainee_Workout_Plans;
 
 INSERT INTO workout_exercises (workout_id, excersice_id, num_sets, num_reps)
 VALUES
@@ -233,4 +225,3 @@ VALUES
     -- (5, 15, 3, 15),
     -- (5, 21, 5, 3),
     -- (5, 26, 3, 20);
-SELECT * FROM workout_exercises;

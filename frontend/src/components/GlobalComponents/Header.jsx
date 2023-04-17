@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Cart } from "../ExerciseComponents/Cart";
 import { ProfileCard } from "../ProfileComponents/ProfileCard";
+import { Link, useLocation } from "react-router-dom";
 
-export const Header = ({ cartItems, setCartItems, inExercise, inWorkout, isLoggedIn }) => {
-  
+export const Header = ({ cartItems, setCartItems, inExercise, inWorkout,inHomepage}) => {
 
+  const location = useLocation();
 
   const finalizeWorkout = () =>{
     setCartItems([]);
@@ -17,7 +18,7 @@ export const Header = ({ cartItems, setCartItems, inExercise, inWorkout, isLogge
       <div className="d-flex justify-content-between py-1">
         <h5 className="m-3">Workout App</h5>
         <div className="d-flex mx-4 align-items-center">
-          {isLoggedIn && inExercise && (
+          {location.pathname==="/exercise" && (
             <>
               <ProfileCard 
               firstName="Paul"
@@ -36,29 +37,29 @@ export const Header = ({ cartItems, setCartItems, inExercise, inWorkout, isLogge
             </>
             
           )}
-          {isLoggedIn && inWorkout && (
+          { location.pathname==="/workout" && (
             <>
           <ProfileCard 
               firstName="Paul"
               />
             </>
           )}
-          {!isLoggedIn && (
+          {location.pathname==="/" && (
             <>
-              <a
-                href="login"
+              <Link
+                to="login"
                 className="my-1 py-2 px-4"
                 style={{ textDecoration: "none", color: "#003F7D", fontWeight: "bold" }}
               >
                 Login
-              </a>
-              <a
-                href="signup"
+              </Link>
+              <Link
+                to="signup"
                 className="my-1 py-2 px-4 text-white rounded"
                 style={{ backgroundColor: "orange", textDecoration: "none", fontWeight: "bold" }}
               >
                 SIGN UP
-              </a>
+              </Link>
             </>
           )}
           

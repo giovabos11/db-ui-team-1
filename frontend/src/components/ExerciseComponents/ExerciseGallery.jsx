@@ -2,9 +2,10 @@ import { useState } from "react";
 import { ExerciseCard } from "./ExerciseCard";
 import { Cart } from "./Cart";
 import { Header } from "../GlobalComponents/Header"
-export const ExerciseGallery = ({ setInExercise, setInWorkout, inExercise, inWorkout }) => {
+import { Link } from "react-router-dom";
+export const ExerciseGallery = ({ setInExercise, setInWorkout }) => {
   const [cartItems, setCartItems] = useState([]);
-
+  
 
   return <>
     <div className="" style={{ backgroundColor: "#b7ccdf", minHeight: "100vh" }}>
@@ -12,21 +13,13 @@ export const ExerciseGallery = ({ setInExercise, setInWorkout, inExercise, inWor
         <Header
           cartItems={cartItems}
           setCartItems={setCartItems}
-          inExercise={inExercise}
-          inWorkout={inWorkout}
         />
       </div>
       <div className="">
         <h1 className="text-center">Exercise Gallery</h1>
         <div className="m-3 text-center">
-          <button className="btn text-white m-2" style={{ backgroundColor: "#A8BA9A", outlineColor: "#A8BA9A" }}
-            onClick={() => {
-              setInWorkout(true);
-              setInExercise(false);
-            }}
-
-          >Workouts</button>
-          <button className="btn text-white m-2" style={{ backgroundColor: "#A8BA9A", outlineColor: "#A8BA9A" }}>Exercises</button>
+        <Link to="../workout" className="btn text-white m-2" style={{ backgroundColor: "#A8BA9A", outlineColor: "#A8BA9A" }}>Workouts</Link>
+          <Link to ="../exercise"className="btn text-white m-2" style={{ backgroundColor: "#A8BA9A", outlineColor: "#A8BA9A" }}>Exercises</Link>
         </div>
         <div className="container">
           <p className="text-center">Chest</p>
