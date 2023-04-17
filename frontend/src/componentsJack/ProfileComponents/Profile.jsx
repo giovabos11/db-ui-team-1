@@ -28,7 +28,10 @@ export const Profile = (profileId) => {
         <div className="text-center flex-grow-1">
         <div className="container border rounded " style ={{backgroundColor:"#F5F5DC"}}>
           {inFood && <FoodDetails/>}
-          {inSettings && <Settings/>}
+          {inSettings && <Settings
+          
+          
+          />}
           {inCoach && <CoachInfo/>}
           {inWorkouts && <MyWorkouts/>}
           </div>
