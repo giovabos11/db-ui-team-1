@@ -36,6 +36,7 @@ app.post("/login", (req, res) => {
         console.log(rows);
         // If the query is empty, account doesn't exist or the credentials doesn't match
         if (rows[0] == undefined) {
+            res.status(404);
             res.send("The username or password you entered is incorrect");
         }
         // Else, the email and password matches and the user is successfully logged in
@@ -117,6 +118,7 @@ app.post("/signup", (req, res) => {
         }
         // Else, account already exist
         else {
+            res.status(404);
             res.send("Email is already registered");
         }
     });
