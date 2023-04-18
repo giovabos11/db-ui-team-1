@@ -71,7 +71,7 @@ export const Login = ({}) => {
               />
             </Form.Group>
             <div className="d-flex justify-content-center m-4">
-            <Link to="../exercise" className="text-decoration-none">
+            <Link to="../workout" className="text-decoration-none">
               <Button variant="" type="" className="text-white d-flex justify-content-center mx-2" style={{ backgroundColor: "#FECBA5", outlineColor: "#FECBA5" }}>
                 Log in
               </Button>

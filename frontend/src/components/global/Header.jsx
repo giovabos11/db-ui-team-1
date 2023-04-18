@@ -16,7 +16,13 @@ export const Header = ({ cartItems, setCartItems, inExercise, inWorkout,inHomepa
     <div style={{  height:"6.8vh ", width:"100vh"}}>
     <div className="bg fixed-top" style ={{backgroundColor:"#D6E3F8"}} >
       <div className="d-flex justify-content-between py-1">
+      <NavLink to="../" style={{ textDecoration: "none", color: "black" }}>
+        <div className="d-flex">
         <h5 className="m-3">Workout App</h5>
+        <img src=""></img>
+        </div>
+      </NavLink>
+
         <div className="d-flex mx-4 align-items-center">
           {location.pathname==="/exercise" && (
             <>
