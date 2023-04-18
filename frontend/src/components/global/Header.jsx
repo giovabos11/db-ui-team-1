@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Cart } from "../exercise/Cart";
 import { ProfileCard } from "../profile/ProfileCard";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 export const Header = ({ cartItems, setCartItems, inExercise, inWorkout,inHomepage}) => {
 
@@ -62,6 +62,16 @@ export const Header = ({ cartItems, setCartItems, inExercise, inWorkout,inHomepa
               </Link>
             </>
           )}
+          {location.pathname==="/profile" && (
+            <>
+              <NavLink
+                to="../exercise"
+                >
+                  Back to Gallery
+                </NavLink>
+            </>
+          )}
+
           
         </div>
       </div>
