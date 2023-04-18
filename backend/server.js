@@ -80,16 +80,28 @@ app.post("/users/clear", (req, res) => {
 });
 
 app.get("/gallery/exercises", (req,res) => {
-    const query = `SELECT category, name FROM exersises WHERE muscle_group ='${muscle_group}'`
+    const query = `SELECT * FROM exersises`
     connection.query(query,(err,rows,fields) =>{
-        if (err) throw err;
+        if (err) throw err
 
+        console.log(rows)
+        if (rows.length() = 0){
+            res.status(404)
+            res.send("No Table")
+        }
+        const r = rows[0]
         res.status(200);
-        res.send("Successfully sent exercises by muscle_group!");
+        res.json({
+            'exercise': r['exercise_id'],
+            'muscle_group': r['muscle_group'],
+            'name': r['name']
+        })
+        
+        console.log(rows)
+        return
 
     });
     
-    return rows; 
 
 });
 
