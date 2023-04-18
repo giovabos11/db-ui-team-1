@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Homepage } from "./HomepageComponents/Homepage";
+import { Homepage } from "./homepage/Homepage";
 import { Login } from "./Login";
 import { NewAccount } from "./NewAccount";
-import { Profile } from "./ProfileComponents/Profile";
-import { WorkoutGallery } from "./WorkoutComponents/WorkoutGallery";
-import { ExerciseGallery } from "./ExerciseComponents/ExerciseGallery";
+import { Profile } from "./profile/Profile";
+import { WorkoutGallery } from "./workout/WorkoutGallery";
+import { ExerciseGallery } from "./exercise/ExerciseGallery";
 
 export const Router = () => (
   <BrowserRouter>
