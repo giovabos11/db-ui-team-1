@@ -21,11 +21,8 @@ const connection = mysql.createConnection({
 connection.connect();
 
 app.post("/login", (req, res) => {
-    // const email = req.body["email"];
-    // const password = req.body["password"];
-
-    const email = "gboscan@smu.edu";
-    const password = "password";
+    const email = req.body["email"];
+    const password = req.body["password"];
 
     // Check if an account with the same email already exists
     const query = `SELECT user_id FROM Users WHERE email = '${email}' AND password = '${password}';`;
@@ -33,7 +30,6 @@ app.post("/login", (req, res) => {
     connection.query(query, (err, rows, fields) => {
         if (err) throw err;
 
-        console.log(rows);
         // If the query is empty, account doesn't exist or the credentials doesn't match
         if (rows[0] == undefined) {
             res.status(404);
@@ -53,27 +49,20 @@ app.post("/signup", (req, res) => {
     // 0 - Trainee
     // 1 - Coach
 
-    // const user_type = req.body["user_type"];
-    // const first_name = req.body["first_name"];
-    // const last_name = req.body["last_name"];
-    // const age = req.body["age"];
-    // const email = req.body["email"];
-    // const password = req.body["password"];
+    const user_type = req.body["user_type"];
+    const first_name = req.body["first_name"];
+    const last_name = req.body["last_name"];
+    const age = req.body["age"];
+    const email = req.body["email"];
+    const password = req.body["password"];
 
     // REMOVE THIS TEST
-    connection.query(
-        `DELETE FROM Users WHERE user_id = ${14};`,
-        (err, rows, fields) => {
-            if (err) throw err;
-        }
-    );
-
-    const user_type = 0;
-    const first_name = "klsdglskglmks";
-    const last_name = "gjsndjnsoj";
-    const age = 20;
-    const email = "test1111@gmail.com";
-    const password = "password";
+    // connection.query(
+    //     `DELETE FROM Users WHERE user_id = ${14};`,
+    //     (err, rows, fields) => {
+    //         if (err) throw err;
+    //     }
+    // );
 
     //Check if an account with the same email already exists
     let query = `SELECT user_id FROM Users WHERE email = '${email}';`;

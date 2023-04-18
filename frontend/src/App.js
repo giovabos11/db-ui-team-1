@@ -90,7 +90,7 @@ function App() {
         // USER OBJECT SEND TO THIS ROUTE MUST CONTAIN THE FOLLOWING:
         // (REMEMBER TO DO INPUT CHECKING BEFORE THIS POINT)
         const user = {
-            user_type: 1,
+            user_type: 0,
             first_name: "Giovanni",
             last_name: "Boscan",
             age: 20,
@@ -119,6 +119,55 @@ function App() {
             });
     };
 
+    const get_workouts = () => {
+        axios
+            .get(url + "/gallery/workouts")
+            .then((res) => {
+                alert(res.data);
+            })
+            .catch((err) => {
+                alert(err);
+            });
+    };
+
+    const add_workout = () => {
+        const data = {
+            user_type: 0,
+            user_id: 3,
+            workout_id: 1,
+        };
+
+        axios
+            .post(url + `/gallery/workouts/${data.user_id}`, data)
+            .then((res) => {
+                alert(res.data);
+            })
+            .catch((err) => {
+                alert(err);
+            });
+    };
+
+    const add_workout_from_exercises = () => {
+        const data = {
+            user_type: 0,
+            user_id: 3,
+            exercise_list: [7, 8, 9],
+            muscle_group: "Arms",
+            duration: 30,
+            week_day: "Monday",
+            description: "Sample Description",
+        };
+
+        axios
+            .post(url + `/gallery/exercises/${data.user_id}`, data)
+            .then((res) => {
+                alert(res.data);
+            })
+            .catch((err) => {
+                alert(err);
+            });
+    };
+
     return (
         <div className="App">
             <h1>Hello World!</h1>
@@ -129,7 +178,14 @@ function App() {
             <button onClick={clearUsers}>Clear Users in DB</button> */}
             <button onClick={login}>Log in</button>
             <button onClick={sign_up}>Sign up</button>
+            <hr></hr>
             <button onClick={get_exercises}>Get exercises</button>
+            <button onClick={get_workouts}>Get workouts</button>
+            <button onClick={add_workout}>Add workout to user 3</button>
+            <button onClick={add_workout_from_exercises}>
+                Add workout from exercises to user 3
+            </button>
+            <hr></hr>
         </div>
     );
 }
