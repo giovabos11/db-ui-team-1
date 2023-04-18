@@ -5,6 +5,7 @@ import { Form, Button } from "react-bootstrap";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Header } from "./global/Header";
+import { sign_up } from "../api/allApi";
 
 export const NewAccount = () => {
   const [firstName, setFirstName] = useState("");
@@ -132,7 +133,11 @@ export const NewAccount = () => {
           />
         </Form.Group>
         <div className="d-flex justify-content-center m-4">
-        <Button variant="" type="submit" className="text-white d-flex justify-content-center mx-2" style={{backgroundColor:"#FECBA5", outlineColor:"#FECBA5"}}>
+        <Button variant="" type="submit" className="text-white d-flex justify-content-center mx-2" style={{backgroundColor:"#FECBA5", outlineColor:"#FECBA5"}}
+        
+        onClick={() =>{
+          sign_up(registerAs, firstName, lastName, age, email, password);
+        }}>
           Create Account
         </Button>
         </div>

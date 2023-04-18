@@ -4,18 +4,22 @@ import { Form, Button } from "react-bootstrap";
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Header } from "./global/Header";
-import { Link, Navigate } from "react-router-dom";
-
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { login } from "../api/allApi";
 export const Login = ({}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   
 
+  const checkIfReal = () => { 
+    
+  }
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("/login", { email, password });
+      const response = login({ email, password });
       if (response.status === 200) {
         // login successful
       } else {
@@ -71,11 +75,15 @@ export const Login = ({}) => {
               />
             </Form.Group>
             <div className="d-flex justify-content-center m-4">
-            <Link to="../workout" className="text-decoration-none">
-              <Button variant="" type="" className="text-white d-flex justify-content-center mx-2" style={{ backgroundColor: "#FECBA5", outlineColor: "#FECBA5" }}>
+            
+              <Button variant="" type="" className="text-white d-flex justify-content-center mx-2" style={{ backgroundColor: "#FECBA5", outlineColor: "#FECBA5" }}
+              onClick={()=>{
+                login(email, password);
+              }}
+              >
                 Log in
               </Button>
-              </Link>
+              
               <Link to="../signup" className="text-decoration-none">
                 <Button variant="" type="submit" className="text-white d-flex justify-content-center mx-2" style={{ backgroundColor: "#FECBA5", outlineColor: "#FECBA5" }}>
                   Sign up
