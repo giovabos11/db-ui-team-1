@@ -71,7 +71,7 @@ export const Header = ({ cartItems, setCartItems, inExercise, inWorkout,inHomepa
           {location.pathname==="/profile" && (
             <>
               <NavLink
-                to="../exercise"
+                to="../workout"
                 >
                   Back to Gallery
                 </NavLink>
