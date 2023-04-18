@@ -1,13 +1,16 @@
-const express = require("express");
+import express from "express";
+import cors from "cors";
+import mysql from "mysql";
+import { galleryRouter } from "./routes/galleryRouter.js";
+import { profileRouter } from "./routes/profileRouter.js";
+
 const app = express();
 const port = 8000;
 
 app.use(express.json());
 
-const cors = require("cors");
 app.use(cors());
 
-const mysql = require("mysql");
 const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
@@ -118,6 +121,10 @@ app.post("/signup", (req, res) => {
         }
     });
 });
+
+app.use("/gallery", galleryRouter);
+
+app.use("/profile", profileRouter);
 
 // app.get("/", (req, res) => {
 //     res.send("Hello World!");

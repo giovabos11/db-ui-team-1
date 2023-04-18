@@ -108,6 +108,17 @@ function App() {
             });
     };
 
+    const get_exercises = () => {
+        axios
+            .get(url + "/gallery/exercises")
+            .then((res) => {
+                alert(res.data);
+            })
+            .catch((err) => {
+                alert(err);
+            });
+    };
+
     return (
         <div className="App">
             <h1>Hello World!</h1>
@@ -118,6 +129,7 @@ function App() {
             <button onClick={clearUsers}>Clear Users in DB</button> */}
             <button onClick={login}>Log in</button>
             <button onClick={sign_up}>Sign up</button>
+            <button onClick={get_exercises}>Get exercises</button>
         </div>
     );
 }

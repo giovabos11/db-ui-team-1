@@ -1,6 +1,6 @@
 -- Create database
--- CREATE DATABASE IF NOT EXISTS DBUI;
--- USE DBUI;
+CREATE DATABASE IF NOT EXISTS DBUI;
+USE DBUI;
 -- Reset tables
 DROP TABLE IF EXISTS Workout_Users;
 DROP TABLE IF EXISTS Workout_Exercises;
@@ -46,9 +46,7 @@ CREATE TABLE IF NOT EXISTS Workouts(
 CREATE TABLE IF NOT EXISTS Exercises(
     exercise_id int AUTO_INCREMENT PRIMARY KEY,
     muscle_type varchar(32) NOT NULL,
-    excerice_name varchar(255) NOT NULL,
-    workout_id INT,
-    FOREIGN KEY (workout_id) REFERENCES Workouts(workout_id)
+    exercise_name varchar(255) NOT NULL
 );
 CREATE TABLE IF NOT EXISTS Foods(
     food_id int AUTO_INCREMENT PRIMARY KEY,
@@ -205,40 +203,40 @@ VALUES (
         'Tuesday',
         'Rows, pull-ups, and curls'
     );
-INSERT INTO Exercises (muscle_type, excerice_name, workout_id)
-VALUES ('Chest', 'Bench Press', 1),
-    ('Back', 'Pull-ups', 2),
-    ('Legs', 'Squats', 2),
-    ('Biceps', 'Hammer Curls', 2),
-    ('Triceps', 'Dips', 1);
--- ('arms', 'bicep curls'),
--- ('arms', 'tricep extensions'),
--- ('arms', 'hammer curls'),
--- ('arms', 'pushups'),
--- ('abs', 'situps'),
--- ('abs',	'planks'),
--- ('abs',	'russian twists'),
--- ('legs', 'squats'),
--- ('legs', 'lunges'),
--- ('legs', 'side lunges'),
--- ('arms', 'pull ups'),
--- ('arms', 'bench press'),
--- ('arms', 'side lateral arm raises'),
--- ('legs', 'goblet squat'),
--- ('arms','tricep dip'),
--- ('legs', 'sumo squat'),
--- ('cardio', 'burpee')
--- ('legs', 'single leg deadlift'),
--- ('arms', 'bent-over row'),
--- ('abs', 'crunch'),
--- ('legs', 'deadlift'),
--- ('legs', 'calf raises'),
--- ('abs', 'bicycle crunches'),
--- ('cardio', 'walking'),
--- ('cardio', 'running'),
--- ('abs', 'toe touches'),
--- ('abs', 'dead bugs'),
--- ('arms', 'tricep extensions');
+INSERT INTO Exercises (muscle_type, exercise_name)
+VALUES ('Chest', 'Bench Press'),
+    ('Back', 'Pull-ups'),
+    ('Legs', 'Squats'),
+    ('Biceps', 'Hammer Curls'),
+    ('Triceps', 'Dips'),
+    ('Arms', 'Bicep curls'),
+    ('Arms', 'Tricep extensions'),
+    ('Arms', 'Hammer curls'),
+    ('Arms', 'Pushups'),
+    ('Abs', 'Situps'),
+    ('Abs', 'Planks'),
+    ('Abs', 'Russian twists'),
+    ('Legs', 'Squats'),
+    ('Legs', 'Lunges'),
+    ('Legs', 'Side lunges'),
+    ('Arms', 'Pull ups'),
+    ('Arms', 'Bench press'),
+    ('Arms', 'Side lateral arm raises'),
+    ('Legs', 'Goblet squat'),
+    ('Arms', 'Tricep dip'),
+    ('Legs', 'Sumo squat'),
+    ('Cardio', 'Burpee'),
+    ('Legs', 'Single leg deadlift'),
+    ('Arms', 'Bent-over row'),
+    ('Abs', 'Crunch'),
+    ('Legs', 'Deadlift'),
+    ('Legs', 'Calf raises'),
+    ('Abs', 'Bicycle crunches'),
+    ('Cardio', 'Walking'),
+    ('Cardio', 'Running'),
+    ('Abs', 'Toe touches'),
+    ('Abs', 'Dead bugs'),
+    ('Arms', 'Tricep extensions');
 INSERT INTO Foods (
         trainee_id,
         name,
@@ -293,7 +291,7 @@ VALUES (
         (
             select user_id
             from Trainees
-            where user_id = 2
+            where user_id = 4
         ),
         'Hello, how are you?',
         CURRENT_TIMESTAMP
@@ -307,7 +305,7 @@ VALUES (
         (
             select user_id
             from Trainees
-            where user_id = 1
+            where user_id = 3
         ),
         'Hope you are killing those reps!',
         CURRENT_TIMESTAMP
