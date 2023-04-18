@@ -1,5 +1,5 @@
 import React from "react";
-import { Header } from "../GlobalComponents/Header";
+import { Header } from "../global/Header";
 import { Sidebar } from "./Sidebar";
 import {Settings} from "./Settings";
 import { FoodDetails } from "./FoodDetails";

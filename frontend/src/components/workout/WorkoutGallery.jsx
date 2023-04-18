@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { WorkoutCard } from "./WorkoutCard";
-import { Header } from "../GlobalComponents/Header"
+import { Header } from "../global/Header"
 import { Link } from "react-router-dom";
 export const WorkoutGallery = ({}) => {
   const [cartItems, setCartItems] = useState([]);

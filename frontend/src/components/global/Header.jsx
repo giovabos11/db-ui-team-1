@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Cart } from "../ExerciseComponents/Cart";
-import { ProfileCard } from "../ProfileComponents/ProfileCard";
+import { Cart } from "../exercise/Cart";
+import { ProfileCard } from "../profile/ProfileCard";
 import { Link, useLocation } from "react-router-dom";
 
 export const Header = ({ cartItems, setCartItems, inExercise, inWorkout,inHomepage}) => {

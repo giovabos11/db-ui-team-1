@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Header } from "../GlobalComponents/Header";
+import { Header } from "../global/Header";
 
 export const Homepage = () => {
   const [inHomepage, setInHomepage] = useState(true);

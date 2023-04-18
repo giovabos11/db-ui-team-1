@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ExerciseCard } from "./ExerciseCard";
 import { Cart } from "./Cart";
-import { Header } from "../GlobalComponents/Header"
+import { Header } from "../global/Header"
 import { Link } from "react-router-dom";
 export const ExerciseGallery = ({ setInExercise, setInWorkout }) => {
   const [cartItems, setCartItems] = useState([]);

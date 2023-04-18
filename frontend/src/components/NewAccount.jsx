@@ -4,7 +4,7 @@ import axios from "axios";
 import { Form, Button } from "react-bootstrap";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Header } from "./GlobalComponents/Header";
+import { Header } from "./global/Header";
 
 export const NewAccount = () => {
   const [firstName, setFirstName] = useState("");
