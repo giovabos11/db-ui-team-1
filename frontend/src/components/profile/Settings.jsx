@@ -20,7 +20,7 @@ export const Settings = ({ }) => {
     }
     const handleSubmit = async (event) => {
         event.preventDefault();
-        // USE FUNCTION HERE TO PUT NEW DATA TO BACKEND/NOT DEPENDING ON IF SUCCESSFUL
+        // USE FUNCTION HERE TO PUT NEW DATA TO BACKEND/NOT DEPENDING ON IF SUCCESSFUL, PASS IN onUpdate FOR CALLBACK
       };
     return <>
         <form onSubmit={handleSubmit}>
