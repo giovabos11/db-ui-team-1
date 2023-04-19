@@ -1,10 +1,15 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const apiEndpoint = "http://localhost:8000";
 
-export const login = (email,password) => new Promise((resolve, reject) => {
+export const login = (email,password, onSuccess) => new Promise((resolve, reject) => {
+    if(!email || !password){
+        const error = new Error("All fields must be filled");
+        alert(error);
+        reject(error);
 
+        return;
+    }
                 
     // USER OBJECT SEND TO THIS ROUTE MUST CONTAIN THE FOLLOWING:
         // (REMEMBER TO DO INPUT CHECKING BEFORE THIS POINT)
@@ -14,20 +19,33 @@ export const login = (email,password) => new Promise((resolve, reject) => {
         };
 
         axios
-            .post(apiEndpoint + "/login", user)
-            .then((res) => {
-                alert(res.data);
-                
+            .post(`${apiEndpoint}/login`, user)
+            .then((response) => {
+                alert(response.data);
+
+                onSuccess();
+
+                resolve(response.data);
             })
-            .catch((err) => {
-                alert("Error: " + err);
+            .catch((error) => {
+                alert("Error: " + error);
+                reject(error);
             });
 });
 
-
-export const sign_up = (user_type, first_name, last_name, age, email, password) => new Promise((resolve, reject) => {
+export const sign_up = (user_type, first_name, last_name, age, email, password, onSuccess) => new Promise((resolve, reject) => {
     // USER OBJECT SEND TO THIS ROUTE MUST CONTAIN THE FOLLOWING:
         // (REMEMBER TO DO INPUT CHECKING BEFORE THIS POINT)
+
+        // input checking
+        if (!user_type || !first_name || !last_name || !age || !email || !password) {
+            const error = new Error("All fields must be filled");
+            alert(error);
+            reject(error);
+            
+            return;
+        }
+        
         const user = {
             user_type: user_type,
             first_name: first_name,
@@ -38,12 +56,64 @@ export const sign_up = (user_type, first_name, last_name, age, email, password) 
         };
 
         axios
-            .post(apiEndpoint + "/signup", user)
-            .then((res) => {
-                alert(res.data);
+            .post(`${apiEndpoint}/signup`, user)
+            .then((response) => {
+                alert(response.data);
                 
-            })
-            .catch((err) => {
-                alert(err);
+                onSuccess();
+                
+                resolve(response.data);
+
+
+            }).catch((error) => {
+                alert("That email is already in use.");
+                reject(error);
             });
+            
+});
+
+
+export const get_user_info = (id) => new Promise((resolve, reject) => {
+    axios.get(`${apiEndpoint}/user/${id}`).then((response)=>{
+        resolve(response.data);
+    })
+    .catch((error) => {
+        reject(error);
+    });
+});
+
+export const update_user_info = (id, user_type, first_name, last_name, age, email, password, onSuccess) => new Promise ((resolve, reject) =>{
+    if (!user_type || !first_name || !last_name || !age || !email || !password) {
+        const error = new Error("All fields must be filled");
+        alert(error);
+        reject(error);
+        
+        return;
+    }
+    const user = {
+        user_type: user_type,
+        first_name: first_name,
+        last_name: last_name,
+        age: age,
+        email: email,
+        password: password,
+    };
+    axios.put(`${apiEndpoint}/user/${id}`, user)
+    .then((response) => {
+        alert(response.data);
+        
+        onSuccess();
+        
+        resolve(response.data);
+        }).catch(error => {
+            alert(error);
+            reject(error);
+        });
+})
+
+
+
+
+export const fillExercises = () => new Promise ((resolve, reject) => {
+    axios.get(`${apiEndpoint}/exercises`);
 });

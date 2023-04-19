@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Cart } from "../exercise/Cart";
 import { ProfileCard } from "../profile/ProfileCard";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { AppContext } from "../AppContext";
 
 export const Header = ({ cartItems, setCartItems, inExercise, inWorkout,inHomepage}) => {
 
   const location = useLocation();
-
+  const appContext = useContext(AppContext);
   const finalizeWorkout = () =>{
     setCartItems([]);
   }

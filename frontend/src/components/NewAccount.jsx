@@ -16,26 +16,15 @@ export const NewAccount = () => {
   const [registerAs, setRegisterAs] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   
+  const navigate = useNavigate();
+  
+  const onSuccess = () => {
+    navigate("../workout");
+  }
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await axios.post("/new-account", {
-        firstName,
-        lastName,
-        email,
-        password,
-        age,
-        registerAs,
-      });
-      if (response.status === 201) {
-        // account created successfully
-      } else {
-        setErrorMessage("Failed to create account");
-      }
-    } catch (error) {
-      alert("Something went wrong. Please try again later.");
-    }
-  };
+    event.preventDefault(); // Prevent default form submission behavior
+    sign_up(registerAs, firstName, lastName, age, email, password, onSuccess);
+  }
 
   const handleFirstNameChange = (event) => {
     setFirstName(event.target.value);
@@ -133,11 +122,9 @@ export const NewAccount = () => {
           />
         </Form.Group>
         <div className="d-flex justify-content-center m-4">
-        <Button variant="" type="submit" className="text-white d-flex justify-content-center mx-2" style={{backgroundColor:"#FECBA5", outlineColor:"#FECBA5"}}
-        
-        onClick={() =>{
-          sign_up(registerAs, firstName, lastName, age, email, password);
-        }}>
+        <Button  variant="" type="submit" className="text-white d-flex justify-content-center mx-2" style={{backgroundColor:"#FECBA5", outlineColor:"#FECBA5"}}
+
+        >
           Create Account
         </Button>
         </div>
