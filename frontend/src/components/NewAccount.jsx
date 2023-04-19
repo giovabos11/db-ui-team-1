@@ -1,11 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 import { Form, Button } from "react-bootstrap";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Header } from "./global/Header";
 import { sign_up } from "../api/allApi";
+import { AppContext } from "./AppContext";
 
 export const NewAccount = () => {
   const [firstName, setFirstName] = useState("");
@@ -16,10 +17,19 @@ export const NewAccount = () => {
   const [registerAs, setRegisterAs] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   
+  const appContext = useContext(AppContext);
+
   const navigate = useNavigate();
   
   const onSuccess = () => {
     navigate("../workout");
+
+    appContext.setType(registerAs);
+    appContext.setFirstName(firstName);
+    appContext.setLastName(lastName);
+    appContext.setAge(age);
+    appContext.setEmail(email);
+    appContext.setPassword(password);
   }
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default form submission behavior

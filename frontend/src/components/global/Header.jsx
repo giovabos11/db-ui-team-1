@@ -28,7 +28,7 @@ export const Header = ({ cartItems, setCartItems, inExercise, inWorkout,inHomepa
           {location.pathname==="/exercise" && (
             <>
               <ProfileCard 
-              firstName="Paul"
+              firstName={appContext.firstName}
               />
               <div className="cart-container mx-5">
                 <h5 className="text-center">My Workout</h5>
@@ -47,7 +47,7 @@ export const Header = ({ cartItems, setCartItems, inExercise, inWorkout,inHomepa
           { location.pathname==="/workout" && (
             <>
           <ProfileCard 
-              firstName="Paul"
+              firstName={appContext.firstName}
               />
             </>
           )}
