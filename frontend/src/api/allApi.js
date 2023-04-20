@@ -25,7 +25,7 @@ export const login = (email,password, onSuccess) => new Promise((resolve, reject
             .post(`${apiEndpoint}/login`, user)
             .then((response) => {
                 alert(response.data);
-                 
+                
                 onSuccess(response.data);
                 
                 resolve(response.data);
@@ -73,16 +73,6 @@ export const sign_up = (user_type, first_name, last_name, age, email, password, 
                 reject(error);
             });
             
-});
-
-
-export const get_user_info = (id) => new Promise((resolve, reject) => {
-    axios.get(`${apiEndpoint}/user/${id}`).then((response)=>{
-        resolve(response.data);
-    })
-    .catch((error) => {
-        reject(error);
-    });
 });
 
 export const update_user_info = (id, user_type, first_name, last_name, age, email, password, onSuccess) => new Promise ((resolve, reject) =>{

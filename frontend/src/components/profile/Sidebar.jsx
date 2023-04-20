@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../AppContext";
 
 export const Sidebar = ({setInSettings, setInFood, setInCoach, setInWorkouts, firstName}) => {
+  const appContext = useContext(AppContext);
     const changeTabs = (openTab) => {
         // Update state variables based on the selected tab
         switch (openTab) {
@@ -41,7 +43,7 @@ export const Sidebar = ({setInSettings, setInFood, setInCoach, setInWorkouts, fi
                 style={{ width: "30vh", height: "93.2vh" }}>
 
                 <img src="path/to/image.jpg" alt="Profile Image" />
-                <p className="text-white">Hi, {firstName}</p>
+                <p className="text-white">Hi, {appContext.firstName}</p>
 
                 <div className="d-flex flex-column align-items-center container-fluid">
                     <button 
