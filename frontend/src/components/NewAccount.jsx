@@ -30,6 +30,12 @@ export const NewAccount = () => {
     appContext.setAge(age);
     appContext.setEmail(email);
     appContext.setPassword(password);
+    sessionStorage.setItem("type",registerAs);
+    sessionStorage.setItem("firstName", firstName);
+    sessionStorage.setItem("lastName", lastName);
+    sessionStorage.setItem("age", age);
+    sessionStorage.setItem("email", email);
+    sessionStorage.setItem("password", password);
   }
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default form submission behavior

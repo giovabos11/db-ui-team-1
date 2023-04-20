@@ -28,7 +28,13 @@ export const Login = ({}) => {
     appContext.setEmail(email);
     appContext.setPassword(password);
     
-     
+    sessionStorage.setItem("type",user.user_type);
+    sessionStorage.setItem("firstName", user.first_name);
+    sessionStorage.setItem("lastName", user.last_name);
+    sessionStorage.setItem("age", user.age);
+    sessionStorage.setItem("email", email);
+    sessionStorage.setItem("password", password);
+    
   }
   
   const handleSubmit = async (event) => {

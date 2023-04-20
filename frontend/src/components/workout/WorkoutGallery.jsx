@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { WorkoutCard } from "./WorkoutCard";
 import { Header } from "../global/Header"
 import { Link } from "react-router-dom";
@@ -10,7 +10,6 @@ export const WorkoutGallery = ({ }) => {
   const appContext = useContext(AppContext);
   
   useEffect(() => {
-    console.log(get_workouts());
     const fetch_workouts = async () => {
       get_workouts().then(response => setWorkouts(response));
     }
@@ -41,9 +40,9 @@ export const WorkoutGallery = ({ }) => {
         {
 
           workouts.map((workout, index) => {
-            return<>
+            return<React.Fragment key={index}>
               <WorkoutCard
-              key={index}
+              
               id = {workout.workout_id}
               muscleGroup={workout.muscle_group}
               weekDay={workout.week_day}
@@ -51,7 +50,7 @@ export const WorkoutGallery = ({ }) => {
               description={workout.description}
               handleAdd={handleAdd}
               ></WorkoutCard>
-            </>
+            </React.Fragment>
           })
 
         }

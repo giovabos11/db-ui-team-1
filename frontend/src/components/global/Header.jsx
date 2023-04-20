@@ -5,10 +5,11 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { AppContext } from "../AppContext";
 import { add_workouts_from_exercises } from "../../api/allApi";
 
-export const Header = ({ cartItems, setCartItems, inExercise, inWorkout,inHomepage}) => {
+export const Header = ({ cartItems, setCartItems }) => {
 
   const location = useLocation();
   const appContext = useContext(AppContext);
+  
   const finalizeWorkout = () =>{
     if(cartItems.length !== 0){
       let exercisesIds = [];
@@ -62,7 +63,8 @@ export const Header = ({ cartItems, setCartItems, inExercise, inWorkout,inHomepa
               />
             </>
           )}
-          {location.pathname==="/" && (
+          
+          {location.pathname==="/" && appContext.firstName === "" && (
             <>
               <Link
                 to="login"
@@ -80,8 +82,25 @@ export const Header = ({ cartItems, setCartItems, inExercise, inWorkout,inHomepa
               </Link>
             </>
           )}
+
+          {appContext.firstName !=="" && location.pathname==="/" && (
+            <>
+            
+            
+              <NavLink
+                to="../gallery/workout"
+                >
+                  Back to Gallery
+                </NavLink>
+                <ProfileCard 
+              firstName={appContext.firstName}
+              />
+            </>
+          )}
+
           {location.pathname==="/profile" && (
             <>
+            
               <NavLink
                 to="../gallery/workout"
                 >
