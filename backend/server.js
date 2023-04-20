@@ -121,7 +121,7 @@ app.post("/signup", (req, res) => {
                     }
 
                     res.status(200);
-                    res.send("User created!");
+                    res.send(user_id + "");
                 });
             });
         }
