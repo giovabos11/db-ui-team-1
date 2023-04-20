@@ -77,8 +77,8 @@ export const NewAccount = () => {
             value={registerAs}
           >
             <option value="">Select account type</option>
-            <option value="trainee">Trainee</option>
-            <option value="coach">Coach</option>
+            <option value={0}>Trainee</option>
+            <option value={1}>Coach</option>
           </Form.Control>
         </Form.Group>
 

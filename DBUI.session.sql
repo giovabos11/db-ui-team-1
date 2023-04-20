@@ -163,6 +163,7 @@ VALUES (
             where rating = 3
         )
     );
+-- This table stores the user that created the workout (either Coach or Trainee)
 INSERT INTO Workouts (
         trainee_id,
         coach_id,
@@ -175,28 +176,20 @@ VALUES (
         (
             select user_id
             from Trainees
-            where user_id = 3
+            where user_id = 4
         ),
-        (
-            select user_id
-            from Coaches
-            where user_id = 1
-        ),
+        NULL,
         'Legs',
         60,
         'Monday',
         'Squats, lunges, and calf raises'
     ),
     (
-        (
-            select user_id
-            from Trainees
-            where user_id = 4
-        ),
+        NULL,
         (
             select user_id
             from Coaches
-            where user_id = 1
+            where user_id = 2
         ),
         'Back and Biceps',
         90,
@@ -310,6 +303,7 @@ VALUES (
         'Hope you are killing those reps!',
         CURRENT_TIMESTAMP
     );
+-- This table stores the user that saved the workout (either Coach or Trainee)
 INSERT INTO Workout_Users (
         workout_id,
         trainee_id,

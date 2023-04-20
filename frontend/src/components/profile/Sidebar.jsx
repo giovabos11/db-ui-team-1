@@ -39,13 +39,15 @@ export const Sidebar = ({setInSettings, setInFood, setInCoach, setInWorkouts, fi
         <>
 
             <div
-                className=" bg-dark p-3 pl-0 "
+                className=" bg-dark py-3 pl-0 "
                 style={{ width: "30vh", height: "93.2vh" }}>
 
-                <img src="path/to/image.jpg" alt="Profile Image" />
-                <p className="text-white">Hi, {appContext.firstName}</p>
+                
 
                 <div className="d-flex flex-column align-items-center container-fluid">
+
+                <img src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg" alt="Profile Image" className="rounded-circle ml-2" style={{ maxWidth: "3rem", maxHeight: "3rem" }}/>
+                <p className="text-white">Hi, {appContext.firstName} {appContext.lastName}</p>
                     <button 
                     onClick={ () =>
                         changeTabs("settings")

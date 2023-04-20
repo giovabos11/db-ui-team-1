@@ -92,8 +92,9 @@ galleryRouter.get("/workouts", (req, res) => {
             res.status(404);
             res.send("The table is empty!");
         }
-
-        res.send(rows);
+        else {
+            res.send(rows);
+        }
     });
 });
 
@@ -101,6 +102,8 @@ galleryRouter.post("/workouts/:user_id", (req, res) => {
     //console.log(req.body["user_id"]);
 
     let query;
+
+    console.log("USER TYPE: " + req.body["user_type"]);
 
     // User is Trainee
     if (req.body["user_type"] == 0) {
