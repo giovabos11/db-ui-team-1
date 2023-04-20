@@ -36,7 +36,7 @@ export const Header = ({ cartItems, setCartItems }) => {
       <NavLink to="../" style={{ textDecoration: "none", color: "black" }}>
         <div className="d-flex">
         <h5 className="m-3">Workout App</h5>
-        <Logout></Logout>
+        
         <img src=""></img>
         </div>
       </NavLink>
@@ -110,7 +110,14 @@ export const Header = ({ cartItems, setCartItems }) => {
                 </NavLink>
             </>
           )}
+          {
+            appContext.firstName!=="" && (
+              <NavLink to="../" style={{ textDecoration: "none", color: "black" }}>
 
+              <Logout></Logout>
+              </NavLink>
+            )
+          }
           
         </div>
       </div>
