@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const ExerciseCard = ({ name, id, bodyPart, img, setCartItems, cartItems }) => {
+export const ExerciseCard = ({ name, id, bodyPart, setCartItems, cartItems }) => {
 
 
   const addToCart = () => {

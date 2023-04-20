@@ -25,7 +25,7 @@ export const Header = ({ cartItems, setCartItems, inExercise, inWorkout,inHomepa
       </NavLink>
 
         <div className="d-flex mx-4 align-items-center">
-          {location.pathname==="/exercise" && (
+          {location.pathname==="/gallery/exercise" && (
             <>
               <ProfileCard 
               firstName={appContext.firstName}
@@ -44,7 +44,7 @@ export const Header = ({ cartItems, setCartItems, inExercise, inWorkout,inHomepa
             </>
             
           )}
-          { location.pathname==="/workout" && (
+          { location.pathname==="/gallery/workout" && (
             <>
           <ProfileCard 
               firstName={appContext.firstName}
@@ -72,7 +72,7 @@ export const Header = ({ cartItems, setCartItems, inExercise, inWorkout,inHomepa
           {location.pathname==="/profile" && (
             <>
               <NavLink
-                to="../workout"
+                to="../gallery/workout"
                 >
                   Back to Gallery
                 </NavLink>

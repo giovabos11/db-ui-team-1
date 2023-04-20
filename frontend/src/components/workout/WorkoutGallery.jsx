@@ -16,8 +16,8 @@ export const WorkoutGallery = ({}) => {
       </div>
         <h1 className="text-center">Workout Gallery</h1>
         <div className="m-3 text-center">
-          <Link to="../workout" className="btn text-white m-2" style={{ backgroundColor: "#C8E2C0", outlineColor: "#A8BA9A" }}>Workouts</Link>
-          <Link to ="../exercise"className="btn text-white m-2" style={{ backgroundColor: "#A8BA9A", outlineColor: "#A8BA9A" }}>Exercises</Link>
+          <Link to="../gallery/workout" className="btn text-white m-2" style={{ backgroundColor: "#C8E2C0", outlineColor: "#A8BA9A" }}>Workouts</Link>
+          <Link to ="../gallery/exercise"className="btn text-white m-2" style={{ backgroundColor: "#A8BA9A", outlineColor: "#A8BA9A" }}>Exercises</Link>
         </div>
       
       <div className="container workout-grid">

@@ -1,9 +1,10 @@
-import { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { ExerciseCard } from "./ExerciseCard";
 import { Cart } from "./Cart";
 import { Header } from "../global/Header"
-import { Link } from "react-router-dom";
+import { Link, useAsyncError } from "react-router-dom";
 import { get_exercises } from "../../api/allApi";
+import { ExerciseHead } from "./ExerciseHead";
 export const ExerciseGallery = ({ setInExercise, setInWorkout }) => {
   const [chestExercises, setChestExercises] = useState([]);
   const [legExercises, setLegExercises] = useState([]);
@@ -13,20 +14,19 @@ export const ExerciseGallery = ({ setInExercise, setInWorkout }) => {
   const [armExercises, setArmExercises] = useState([]);
   const [abExercises, setAbExercises] = useState([]);
   const [cardioExercises, setCardioExercises] = useState([]);
+  
+  const [exercises, setExercises] = useState([]);
 
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
+    console.log(get_exercises());
+    const fetch_exercises = async () => {
+      get_exercises().then(response => setExercises(response));
+    }
     
-    get_exercises("chest").then(x=>setChestExercises(x));
-    get_exercises("leg").then(x=>setLegExercises(x));
-    get_exercises("back").then(x=>setBackExercises(x));
-    get_exercises("bicep").then(x=>setBicepExercises(x));
-    get_exercises("tricep").then(x=>setTricepExercises(x));
-    get_exercises("arm").then(x=>setArmExercises(x));
-    get_exercises("ab").then(x=>setAbExercises(x));
-    get_exercises("cardio").then(x=>setCardioExercises(x));
-    
+    fetch_exercises();
+      
   }, [])
 
   return <>
@@ -39,59 +39,39 @@ export const ExerciseGallery = ({ setInExercise, setInWorkout }) => {
       </div>
       <h1 className="text-center">Exercise Gallery</h1>
       <div className="m-3 text-center">
-        <Link to="../workout" className="btn text-white m-2" style={{ backgroundColor: "#A8BA9A", outlineColor: "#A8BA9A" }}>Workouts</Link>
-        <Link to="../exercise" className="btn text-white m-2" style={{ backgroundColor: "#C8E2C0", outlineColor: "#A8BA9A" }}>Exercises</Link>
+        <Link to="../gallery/workout" className="btn text-white m-2" style={{ backgroundColor: "#A8BA9A", outlineColor: "#A8BA9A" }}>Workouts</Link>
+        <Link to="../gallery/exercise" className="btn text-white m-2" style={{ backgroundColor: "#C8E2C0", outlineColor: "#A8BA9A" }}>Exercises</Link>
       </div>
       <div className="container">
-        <h5 className="text-center">Chest</h5>
-        <hr></hr>
-        <div className=" workout-grid2">
-          <ExerciseCard name="Bench Press" id="1"
-            cartItems={cartItems}
-            setCartItems={setCartItems} />
-        </div>
-        <h5 className="text-center">Legs</h5>
-        <hr></hr>
-        <div className=" workout-grid2">
-          <ExerciseCard name="Bench Press" id="7"
-            cartItems={cartItems}
-            setCartItems={setCartItems} />
-        </div>
-        <h5 className="text-center">Back</h5>
-        <hr></hr>
-        <div className=" workout-grid2 ">
-        </div>
-
-        <h5 className="text-center">Biceps</h5>
-        <hr></hr>
-        <div className=" workout-grid2 ">
-        </div>
-
-
-        <h5 className="text-center">Triceps</h5>
-        <hr></hr>
-        <div className=" workout-grid2 ">
-        </div>
-
-
-        <h5 className="text-center">Arms</h5>
-        <hr></hr>
-        <div className=" workout-grid2 ">
-        </div>
-
-
-        <h5 className="text-center">Abs</h5>
-        <hr></hr>
-        <div className=" workout-grid2 ">
-        </div>
-
-
-        <h5 className="text-center">Cardio</h5>
-        <hr></hr>
-        <div className=" workout-grid2 ">
-        </div>
-
-
+        
+        {
+          
+        exercises.map((exercise_group, index) => {
+            return <React.Fragment key={index}>
+              <ExerciseHead
+              key = {index}
+              muscleGroup={exercise_group.muscle_group}
+              
+              ></ExerciseHead>
+              <div className=" workout-grid2">
+              {
+                exercise_group.exercises.map((exercise, index) =>{
+                  return<React.Fragment key={index}>
+                  <ExerciseCard
+                    key={exercise.exercise_id}
+                    name={exercise.name}
+                    id={exercise.exercise_id}
+                    cartItems={cartItems}
+                    setCartItems={setCartItems}
+                    
+                  ></ExerciseCard>
+                  </React.Fragment>
+                }) 
+              }
+              </div>
+            </React.Fragment>
+          })
+        }
       </div>
 
     </div>

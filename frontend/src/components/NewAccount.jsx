@@ -22,7 +22,7 @@ export const NewAccount = () => {
   const navigate = useNavigate();
   
   const onSuccess = () => {
-    navigate("../workout");
+    navigate("../gallery/workout");
 
     appContext.setType(registerAs);
     appContext.setFirstName(firstName);

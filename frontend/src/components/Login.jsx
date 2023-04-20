@@ -18,7 +18,7 @@ export const Login = ({}) => {
   const navigate = useNavigate();
 
   const onSuccess = (user) => {
-    navigate("../workout");
+    navigate("../gallery/workout");
     // pass in all things from backend to be stored in appContext
     appContext.setId(user.user_id);
     appContext.setType(user.user_type);

@@ -106,6 +106,14 @@ export const update_user_info = (id, user_type, first_name, last_name, age, emai
 
 
 
-export const get_exercises = (name) => new Promise((resolve, reject) => {
-    
+export const get_exercises = () => new Promise((resolve, reject) => {
+    axios
+            .get(apiEndpoint + "/gallery/exercises")
+            .then((response) => {
+                resolve(response.data);
+                return response.data;
+            })
+            .catch((err) => {
+                alert(err);
+            });
 });

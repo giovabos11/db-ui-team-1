@@ -15,8 +15,8 @@ export const Router = () => {
         <Route path="/" element={<Homepage />} exact />
         <Route path="login" element={<Login/>} />
         <Route path="signup" element={<NewAccount />} />
-        <Route path="workout" element={<WorkoutGallery />} />
-        <Route path="exercise" element={<ExerciseGallery />} />
+        <Route path="gallery/workout" element={<WorkoutGallery />} />
+        <Route path="gallery/exercise" element={<ExerciseGallery />} />
         <Route path="profile" element={ <Profile />} />
       </Routes>
     </BrowserRouter>
