@@ -14,7 +14,7 @@ export const WorkoutCard = ({ id, muscleGroup, weekDay, duration, description}) 
         <p className="card-text">{duration} minutes</p>
         <p className="card-text">{description}</p>
         
-        <button className="btn  btn-sm" type="button" onClick style={{borderColor:"#905d5d" ,color:"white", backgroundColor: "#905d5d"}}>
+        <button className="btn  btn-sm" type="button"  style={{borderColor:"#905d5d" ,color:"white", backgroundColor: "#905d5d"}}>
         Add to my list
       </button>
       </div>

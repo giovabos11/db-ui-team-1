@@ -11,20 +11,26 @@ export const Login = ({}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-
+ 
+  
   const appContext = useContext(AppContext);
 
   const navigate = useNavigate();
 
-  const onSuccess = () => {
+  const onSuccess = (id) => {
     navigate("../workout");
+    
     // pass in all things from backend to be stored in appContext
+    appContext.setId(id);
     appContext.setType();
     appContext.setFirstName();
     appContext.setLastName();
     appContext.setAge();
     appContext.setEmail(email);
     appContext.setPassword(password);
+    
+    console.log("id: " + id);
+     
   }
   
   const handleSubmit = async (event) => {

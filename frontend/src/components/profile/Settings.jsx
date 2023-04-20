@@ -2,13 +2,16 @@ import { useContext, useState } from "react";
 import { AppContext } from "../AppContext";
 
 export const Settings = ({ }) => {
+
+    const appContext = useContext(AppContext);
+    
     const [firstName, setFirstName] = useState(appContext.firstName);
     const [lastName, setLastName] = useState(appContext.lastName);
     const [age, setAge] = useState(appContext.age);
     const [email, setEmail] = useState(appContext.email);
     const [password, setPassword] = useState(appContext.password);
 
-    const appContext = useContext(AppContext);
+   
 
     const onUpdate = () => {
         

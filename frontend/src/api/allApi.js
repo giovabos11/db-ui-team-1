@@ -1,13 +1,16 @@
 import axios from "axios";
+import { AppContext } from "../components/AppContext";
+import { useContext } from "react";
 
 const apiEndpoint = "http://localhost:8000";
+
 
 export const login = (email,password, onSuccess) => new Promise((resolve, reject) => {
     if(!email || !password){
         const error = new Error("All fields must be filled");
         alert(error);
         reject(error);
-
+        
         return;
     }
                 
@@ -22,9 +25,9 @@ export const login = (email,password, onSuccess) => new Promise((resolve, reject
             .post(`${apiEndpoint}/login`, user)
             .then((response) => {
                 alert(response.data);
-
-                onSuccess();
-
+                 
+                onSuccess(response.data);
+                
                 resolve(response.data);
             })
             .catch((error) => {
@@ -98,7 +101,7 @@ export const update_user_info = (id, user_type, first_name, last_name, age, emai
         email: email,
         password: password,
     };
-    axios.put(`${apiEndpoint}/user/${id}`, user)
+    axios.put(`${apiEndpoint}/profile/${id}`, user)
     .then((response) => {
         alert(response.data);
         
@@ -113,7 +116,6 @@ export const update_user_info = (id, user_type, first_name, last_name, age, emai
 
 
 
-
-export const fillExercises = () => new Promise ((resolve, reject) => {
-    axios.get(`${apiEndpoint}/exercises`);
+export const get_exercises = (name) => new Promise((resolve, reject) => {
+    
 });

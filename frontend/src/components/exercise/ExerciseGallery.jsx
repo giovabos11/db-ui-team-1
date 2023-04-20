@@ -3,28 +3,30 @@ import { ExerciseCard } from "./ExerciseCard";
 import { Cart } from "./Cart";
 import { Header } from "../global/Header"
 import { Link } from "react-router-dom";
+import { get_exercises } from "../../api/allApi";
 export const ExerciseGallery = ({ setInExercise, setInWorkout }) => {
-  const [getChestExercises, setChestExercises] = useState([]);
-  const [getLegExercises, setLegExercises] = useState([]);
-  const [getBackExercises, setBackExercises] = useState([]);
-  const [getBicepExercises, setBicepExercises] = useState([]);
-  const [getTricepExercises, setTricepExercises] = useState([]);
-  const [getArmExercises, setArmExercises] = useState([]);
-  const [getAbExercises, setAbExercises] = useState([]);
-  const [getCardioExercises, setCardioExercises] = useState([]);
+  const [chestExercises, setChestExercises] = useState([]);
+  const [legExercises, setLegExercises] = useState([]);
+  const [backExercises, setBackExercises] = useState([]);
+  const [bicepExercises, setBicepExercises] = useState([]);
+  const [tricepExercises, setTricepExercises] = useState([]);
+  const [armExercises, setArmExercises] = useState([]);
+  const [abExercises, setAbExercises] = useState([]);
+  const [cardioExercises, setCardioExercises] = useState([]);
+
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    /*
-    getChestExercises().then(x=>setChestExercises(x));
-    getLegExercises().then(x=>setLegExercises(x));
-    getBackExercises().then(x=>setBackExercises(x));
-    getBicepExercises().then(x=>setBicepExercises(x));
-    getTricepExercises().then(x=>setTricepExercises(x));
-    getArmExercises().then(x=>setArmExercises(x));
-    getAbExercises().then(x=>setAbExercises(x));
-    getCardioExercises().then(x=>setCardioExercises(x));
-    */
+    
+    get_exercises("chest").then(x=>setChestExercises(x));
+    get_exercises("leg").then(x=>setLegExercises(x));
+    get_exercises("back").then(x=>setBackExercises(x));
+    get_exercises("bicep").then(x=>setBicepExercises(x));
+    get_exercises("tricep").then(x=>setTricepExercises(x));
+    get_exercises("arm").then(x=>setArmExercises(x));
+    get_exercises("ab").then(x=>setAbExercises(x));
+    get_exercises("cardio").then(x=>setCardioExercises(x));
+    
   }, [])
 
   return <>

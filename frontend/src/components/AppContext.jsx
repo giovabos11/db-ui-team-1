@@ -10,8 +10,8 @@ export const AppProvider = ({ children }) => {
     const [age, setAge] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-
-    return <AppContext.Provider value={{type, setType, firstName, setFirstName, lastName, setLastName, age, setAge, email, setEmail, password, setPassword}}>
+    const [id, setId] = useState();
+    return <AppContext.Provider value={{type, setType, firstName, setFirstName, lastName, setLastName, age, setAge, email, setEmail, password, setPassword, id, setId}}>
         {children}
     </AppContext.Provider>
 
