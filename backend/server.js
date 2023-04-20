@@ -25,7 +25,7 @@ app.post("/login", (req, res) => {
     const password = req.body["password"];
 
     // Check if an account with the same email already exists
-    const query = `SELECT user_id FROM Users WHERE email = '${email}' AND password = '${password}';`;
+    let query = `SELECT user_id, first_name, last_name, age  FROM Users WHERE email = '${email}' AND password = '${password}';`;
 
     connection.query(query, (err, rows, fields) => {
         if (err) throw err;
@@ -38,7 +38,27 @@ app.post("/login", (req, res) => {
         // Else, the email and password matches and the user is successfully logged in
         else {
             res.status(200);
-            res.send(rows[0].user_id + "");
+
+            const user = {
+                user_id: rows[0].user_id,
+                first_name: rows[0].first_name,
+                last_name: rows[0].last_name,
+                age: rows[0].age,
+                user_type: undefined,
+            };
+
+            query = `SELECT user_id FROM Trainees WHERE user_id = ${user.user_id};`;
+
+            // Check user type
+            connection.query(query, (err, rows, fields) => {
+                if (rows[0] == undefined) {
+                    user.user_type = 1;
+                } else {
+                    user.user_type = 0;
+                }
+
+                res.send(user);
+            });
         }
     });
 });
