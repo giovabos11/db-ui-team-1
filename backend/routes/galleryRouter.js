@@ -91,9 +91,9 @@ galleryRouter.get("/workouts", (req, res) => {
         if (rows.length == 0) {
             res.status(404);
             res.send("The table is empty!");
+        } else {
+            res.send(rows);
         }
-
-        res.send(rows);
     });
 });
 
