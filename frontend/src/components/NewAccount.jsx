@@ -23,13 +23,17 @@ export const NewAccount = () => {
   
   const onSuccess = () => {
     navigate("../gallery/workout");
-
+    // need to retrive ID somehow?
     appContext.setType(registerAs);
     appContext.setFirstName(firstName);
     appContext.setLastName(lastName);
     appContext.setAge(age);
     appContext.setEmail(email);
     appContext.setPassword(password);
+    
+
+    // change 50 to actual id eventually
+    sessionStorage.setItem("id", 50);
     sessionStorage.setItem("type",registerAs);
     sessionStorage.setItem("firstName", firstName);
     sessionStorage.setItem("lastName", lastName);

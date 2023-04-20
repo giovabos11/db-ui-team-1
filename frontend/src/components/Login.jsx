@@ -28,6 +28,7 @@ export const Login = ({}) => {
     appContext.setEmail(email);
     appContext.setPassword(password);
     
+    sessionStorage.setItem("id", user.user_id);
     sessionStorage.setItem("type",user.user_type);
     sessionStorage.setItem("firstName", user.first_name);
     sessionStorage.setItem("lastName", user.last_name);

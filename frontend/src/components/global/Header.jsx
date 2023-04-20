@@ -4,6 +4,7 @@ import { ProfileCard } from "../profile/ProfileCard";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AppContext } from "../AppContext";
 import { add_workouts_from_exercises } from "../../api/allApi";
+import { Logout } from "../Logout";
 
 export const Header = ({ cartItems, setCartItems }) => {
 
@@ -35,6 +36,7 @@ export const Header = ({ cartItems, setCartItems }) => {
       <NavLink to="../" style={{ textDecoration: "none", color: "black" }}>
         <div className="d-flex">
         <h5 className="m-3">Workout App</h5>
+        <Logout></Logout>
         <img src=""></img>
         </div>
       </NavLink>
