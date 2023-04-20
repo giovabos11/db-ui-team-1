@@ -33,7 +33,10 @@ export const NewAccount = () => {
   }
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default form submission behavior
-    sign_up(registerAs, firstName, lastName, age, email, password, onSuccess);
+    let tempId;
+    tempId = await sign_up(registerAs, firstName, lastName, age, email, password, onSuccess);
+    appContext.setId(tempId);
+    console.log(appContext.id);
   }
 
   const handleFirstNameChange = (event) => {

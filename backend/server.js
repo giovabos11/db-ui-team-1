@@ -120,8 +120,10 @@ app.post("/signup", (req, res) => {
                         });
                     }
 
+                    console.log(user_id);
+
                     res.status(200);
-                    res.send("User created!");
+                    res.send(user_id+"");
                 });
             });
         }

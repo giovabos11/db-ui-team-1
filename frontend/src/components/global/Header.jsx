@@ -3,13 +3,27 @@ import { Cart } from "../exercise/Cart";
 import { ProfileCard } from "../profile/ProfileCard";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AppContext } from "../AppContext";
+import { add_workouts_from_exercises } from "../../api/allApi";
 
 export const Header = ({ cartItems, setCartItems, inExercise, inWorkout,inHomepage}) => {
 
   const location = useLocation();
   const appContext = useContext(AppContext);
   const finalizeWorkout = () =>{
-    setCartItems([]);
+    if(cartItems.length !== 0){
+      let exercisesIds = [];
+
+      cartItems.forEach(item => {
+        exercisesIds.push(item.id);
+      });
+      
+
+      add_workouts_from_exercises(appContext.type, appContext.id, exercisesIds, "Arms", 12, "friday", "WOOOHOOOOOOOOOOOOOOO");
+      setCartItems([]);
+    }
+
+
+    
   }
   
 
@@ -35,10 +49,7 @@ export const Header = ({ cartItems, setCartItems, inExercise, inWorkout,inHomepa
                 <Cart cartItems={cartItems} setCartItems={setCartItems} />
               </div>
               <button className="btn btn-primary ml-3"
-              onClick={() => {
-                finalizeWorkout()
-
-              }}
+              onClick={() => finalizeWorkout()}
               >Finalize Workout</button>
               
             </>

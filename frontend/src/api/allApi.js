@@ -145,3 +145,24 @@ export const add_workouts_to_list = (user_type, user_id, workout_id) => new Prom
         });
 
 });
+
+export const add_workouts_from_exercises = (user_type, user_id, exercise_list, muscle_group, duration, week_day, description) => new Promise((resolve, reject) => {
+    const data = {
+        user_type: user_type,
+        user_id: user_id,
+        exercise_list: exercise_list,
+        muscle_group: muscle_group, // need to get from a form
+        duration: duration, // need to get from a form
+        week_day: week_day, // need to get from a form
+        description: description, // need to get from a form
+    };
+
+    axios
+        .post(apiEndpoint + `/gallery/exercises/${data.user_id}`, data)
+        .then((res) => {
+            alert(res.data);
+        })
+        .catch((err) => {
+            alert(err);
+        });
+});

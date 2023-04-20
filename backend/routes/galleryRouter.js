@@ -103,8 +103,6 @@ galleryRouter.post("/workouts/:user_id", (req, res) => {
 
     let query;
 
-    console.log("USER TYPE: " + req.body["user_type"]);
-
     // User is Trainee
     if (req.body["user_type"] == 0) {
         query = `INSERT INTO Workout_Users (
