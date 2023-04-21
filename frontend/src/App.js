@@ -168,6 +168,26 @@ function App() {
             });
     };
 
+    const update_profile_infomation = () => {
+        const data = {
+            user_id: 3,
+            first_name: "Giovanni 2",
+            last_name: "Boscan 2",
+            age: 10,
+            email: "newemail@gmail.com",
+            password: "newpassword",
+        };
+
+        axios
+            .put(url + `/profile/settings/${data.user_id}`, data)
+            .then((res) => {
+                alert(res.data);
+            })
+            .catch((err) => {
+                alert(err);
+            });
+    };
+
     return (
         <div className="App">
             <h1>Hello World!</h1>
@@ -186,6 +206,9 @@ function App() {
                 Add workout from exercises to user 3
             </button>
             <hr></hr>
+            <button onClick={update_profile_infomation}>
+                Update profile info
+            </button>
         </div>
     );
 }
