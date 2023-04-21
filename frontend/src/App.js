@@ -223,6 +223,40 @@ function App() {
             });
     };
 
+    const add_user_food = () => {
+        const data = {
+            user_id: 3,
+            name: "Chicken",
+            protein_amount: 35.0,
+            carbohidrate_amout: 200.0,
+            fat_amount: 1.6,
+        };
+
+        axios
+            .post(url + `/profile/food/${data.user_id}`, data)
+            .then((res) => {
+                alert(res.data);
+            })
+            .catch((err) => {
+                alert(err);
+            });
+    };
+
+    const get_user_food = () => {
+        const data = {
+            user_id: 3,
+        };
+
+        axios
+            .get(url + `/profile/food/${data.user_id}`)
+            .then((res) => {
+                alert(res.data);
+            })
+            .catch((err) => {
+                alert(err);
+            });
+    };
+
     return (
         <div className="App">
             <h1>Hello World!</h1>
@@ -244,8 +278,12 @@ function App() {
             <button onClick={update_profile_infomation}>
                 Update profile info
             </button>
+            <hr></hr>
             <button onClick={get_user_workouts}>Get user workouts</button>
             <button onClick={delete_user_workout}>Delete user workouts</button>
+            <hr></hr>
+            <button onClick={add_user_food}>Add user food</button>
+            <button onClick={get_user_food}>Get sum of user food</button>
         </div>
     );
 }
