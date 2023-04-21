@@ -205,6 +205,7 @@ export const add_user_food = (user_id, name, protein_amount, carbohidrate_amount
     axios
             .post(apiEndpoint + `/profile/food/${user_id}`, data)
             .then((res) => {
+                resolve(res.data);
                 alert(res.data);
             })
             .catch((err) => {
@@ -217,6 +218,7 @@ export const get_user_food = (user_id) => new Promise((resolve, reject) => {
     axios
     .get(apiEndpoint + `/profile/food/${user_id}`)
     .then((res) => {
+        resolve(res.data);
         alert(res.data);
     })
     .catch((err) => {
