@@ -47,7 +47,7 @@ export const Header = ({ cartItems, setCartItems }) => {
               <ProfileCard 
               firstName={appContext.firstName}
               />
-              <div className="cart-container mx-5">
+              <div className="cart-container mx-4">
                 <h5 className="text-center">My Workout</h5>
                 <Cart cartItems={cartItems} setCartItems={setCartItems} />
               </div>
@@ -112,7 +112,7 @@ export const Header = ({ cartItems, setCartItems }) => {
           )}
           {
             appContext.firstName!=="" && (
-              <NavLink to="../" style={{ textDecoration: "none", color: "black" }}>
+              <NavLink className="mx-4" to="../" style={{ textDecoration: "none", color: "black" }}>
 
               <Logout></Logout>
               </NavLink>
