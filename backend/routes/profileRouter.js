@@ -61,4 +61,43 @@ profileRouter.delete(
     }
 );
 
+profileRouter.post("/food/:user_id", (req, res) => {
+    const query = `INSERT INTO Foods (
+            trainee_id,
+            name,
+            protein_amount,
+            carbohidrate_amount,
+            fat_amount,
+            in_timestamp
+        )
+    VALUES (
+            ${req.body["user_id"]},
+            '${req.body["name"]}',
+            ${req.body["protein_amount"]},
+            ${req.body["carbohidrate_amout"]},
+            ${req.body["fat_amount"]},
+            CURRENT_TIMESTAMP
+        )`;
+
+    connection.query(query, (err, rows, fields) => {
+        if (err) throw err;
+
+        res.status(200);
+        res.send("Food added!");
+    });
+});
+
+profileRouter.get("/food/:user_id", (req, res) => {
+    let query = `SELECT SUM(protein_amount) AS total_protein_amount, SUM(carbohidrate_amount) AS total_carbohidrate_amount, SUM(fat_amount) AS total_fat_amount
+    FROM Foods
+    WHERE trainee_id = ${req.params["user_id"]} AND in_timestamp >= CURDATE() AND in_timestamp < CURDATE() + INTERVAL 1 DAY;`;
+
+    connection.query(query, (err, rows, fields) => {
+        if (err) throw err;
+
+        res.status(200);
+        res.send(rows);
+    });
+});
+
 export { profileRouter };

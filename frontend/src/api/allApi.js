@@ -193,3 +193,34 @@ export const delete_user_workout = (user_id, user_type, workout_id) => new Promi
             });
 
 })
+
+export const add_user_food = (user_id, name, protein_amount, carbohidrate_amount, fat_amount) => new Promise((resolve, reject) => {
+    const data = {
+        user_id: 3,
+        name: name,
+        protein_amount: protein_amount,
+        carbohidrate_amout: carbohidrate_amount,
+        fat_amount: fat_amount,
+    };
+    axios
+            .post(apiEndpoint + `/profile/food/${user_id}`, data)
+            .then((res) => {
+                alert(res.data);
+            })
+            .catch((err) => {
+                alert(err);
+            });
+})
+
+
+export const get_user_food = (user_id) => new Promise((resolve, reject) => {
+    axios
+    .get(apiEndpoint + `/profile/food/${user_id}`)
+    .then((res) => {
+        alert(res.data);
+    })
+    .catch((err) => {
+        alert(err);
+    });
+
+})
