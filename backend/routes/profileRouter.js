@@ -35,8 +35,25 @@ profileRouter.get("/workouts/:user_id", (req, res) => {
         if (err) throw err;
 
         res.status(200);
-        console.log(rows);
         res.send(rows);
+    });
+});
+
+profileRouter.delete("/workouts/:user_id", (req, res) => {
+    // User is Trainee
+    if (req.body["user_type"] == 0) {
+        query = `DELETE FROM Workout_Users WHERE workout_id = ${req.body["workout_id"]} AND trainee_id = ${req.body["user_id"]};`;
+    }
+    // User is Coach
+    else if (req.body["user_type"] == 1) {
+        query = `DELETE FROM Workout_Users WHERE workout_id = ${req.body["workout_id"]} AND coach_id = ${req.body["user_id"]};`;
+    }
+
+    connection.query(query, (err, rows, fields) => {
+        if (err) throw err;
+
+        res.status(200);
+        res.send("Workout removed from list!");
     });
 });
 

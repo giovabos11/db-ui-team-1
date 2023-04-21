@@ -203,6 +203,23 @@ function App() {
             });
     };
 
+    const delete_user_workout = () => {
+        const data = {
+            user_type: 0,
+            user_id: 3,
+            workout_id: 3,
+        };
+
+        axios
+            .delete(url + `/profile/workouts/${data.workout_id}`, data)
+            .then((res) => {
+                alert(res.data);
+            })
+            .catch((err) => {
+                alert(err);
+            });
+    };
+
     return (
         <div className="App">
             <h1>Hello World!</h1>
@@ -225,6 +242,7 @@ function App() {
                 Update profile info
             </button>
             <button onClick={get_user_workouts}>Get user workouts</button>
+            <button onClick={delete_user_workout}>Delete user workouts</button>
         </div>
     );
 }
