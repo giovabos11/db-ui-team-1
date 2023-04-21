@@ -39,22 +39,26 @@ profileRouter.get("/workouts/:user_id", (req, res) => {
     });
 });
 
-profileRouter.delete("/workouts/:user_id", (req, res) => {
-    // User is Trainee
-    if (req.body["user_type"] == 0) {
-        query = `DELETE FROM Workout_Users WHERE workout_id = ${req.body["workout_id"]} AND trainee_id = ${req.body["user_id"]};`;
-    }
-    // User is Coach
-    else if (req.body["user_type"] == 1) {
-        query = `DELETE FROM Workout_Users WHERE workout_id = ${req.body["workout_id"]} AND coach_id = ${req.body["user_id"]};`;
-    }
+profileRouter.delete(
+    "/workouts/:user_id/:user_type/:workout_id",
+    (req, res) => {
+        let query;
+        // User is Trainee
+        if (req.params["user_type"] == 0) {
+            query = `DELETE FROM Workout_Users WHERE workout_id = ${req.params["workout_id"]} AND trainee_id = ${req.params["user_id"]};`;
+        }
+        // User is Coach
+        else if (req.params["user_type"] == 1) {
+            query = `DELETE FROM Workout_Users WHERE workout_id = ${req.params["workout_id"]} AND coach_id = ${req.params["user_id"]};`;
+        }
 
-    connection.query(query, (err, rows, fields) => {
-        if (err) throw err;
+        connection.query(query, (err, rows, fields) => {
+            if (err) throw err;
 
-        res.status(200);
-        res.send("Workout removed from list!");
-    });
-});
+            res.status(200);
+            res.send("Workout removed from list!");
+        });
+    }
+);
 
 export { profileRouter };

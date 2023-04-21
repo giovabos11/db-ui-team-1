@@ -211,7 +211,10 @@ function App() {
         };
 
         axios
-            .delete(url + `/profile/workouts/${data.workout_id}`, data)
+            .delete(
+                url +
+                    `/profile/workouts/${data.user_id}/${data.user_type}/${data.workout_id}`
+            )
             .then((res) => {
                 alert(res.data);
             })
