@@ -23,7 +23,7 @@ export const NewAccount = () => {
   
   const onSuccess = () => {
     navigate("../gallery/workout");
-    // need to retrive ID somehow?
+
     appContext.setType(registerAs);
     appContext.setFirstName(firstName);
     appContext.setLastName(lastName);
@@ -32,8 +32,7 @@ export const NewAccount = () => {
     appContext.setPassword(password);
     
 
-    // change 50 to actual id eventually
-    sessionStorage.setItem("id", 50);
+   
     sessionStorage.setItem("type",registerAs);
     sessionStorage.setItem("firstName", firstName);
     sessionStorage.setItem("lastName", lastName);
@@ -46,6 +45,7 @@ export const NewAccount = () => {
     let tempId;
     tempId = await sign_up(registerAs, firstName, lastName, age, email, password, onSuccess);
     appContext.setId(tempId);
+    sessionStorage.setItem("id", tempId);
     console.log(appContext.id);
   }
 

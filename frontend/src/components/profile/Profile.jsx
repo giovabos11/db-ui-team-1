@@ -14,20 +14,20 @@ export const Profile = (profileId) => {
   const [inWorkouts, setInWorkouts] = useState(false);
 
     //const appContext = useContext(AppContext);
-  return (
-    <div className="" style={{}}>
+  return <>
       <div>
         <Header />
       </div>
-      <div className="d-flex flex-grow-0 justify-content-center align-items-center" style={{backgroundColor:"#b7ccdf"}}>
-        <Sidebar 
+      
+      <div className="d-flex flex-grow-0 " style={{backgroundColor:"#b7ccdf", minHeight: "93.2vh"  }}>
+      <Sidebar 
         //firstName={appContext.firstName}
         setInSettings={setInSettings}
         setInFood={setInFood}
         setInCoach={setInCoach}
         setInWorkouts={setInWorkouts}
         />
-        <div className="text-center flex-grow-1">
+        <div className="text-center flex-grow-1 ">
         <div className="container border rounded " style ={{backgroundColor:"#F5F5DC"}}>
           {inFood && <FoodDetails/>}
           {inSettings && <Settings/>}
@@ -35,8 +35,6 @@ export const Profile = (profileId) => {
           {inWorkouts && <MyWorkouts/>}
           </div>
         </div>
-      </div>
-
     </div>
-  );
+    </>
 };

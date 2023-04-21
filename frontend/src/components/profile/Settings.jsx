@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { AppContext } from "../AppContext";
+import { update_user_info } from "../../api/allApi";
 
 export const Settings = ({ }) => {
 
@@ -15,15 +16,18 @@ export const Settings = ({ }) => {
 
     const onUpdate = () => {
         
+        
+    }
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        // USE FUNCTION HERE TO PUT NEW DATA TO BACKEND/NOT DEPENDING ON IF SUCCESSFUL, PASS IN onUpdate FOR CALLBACK
+        update_user_info(appContext.id, firstName, lastName, age, email, password);
         appContext.setFirstName(firstName);
         appContext.setLastName(lastName);
         appContext.setAge(age);
         appContext.setEmail(email);
         appContext.setPassword(password);
-    }
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        // USE FUNCTION HERE TO PUT NEW DATA TO BACKEND/NOT DEPENDING ON IF SUCCESSFUL, PASS IN onUpdate FOR CALLBACK
+
       };
     return <>
         <form onSubmit={handleSubmit}>
@@ -55,11 +59,10 @@ export const Settings = ({ }) => {
                     </div>
                 </div>
             </div>
-        </form>
-        <button className="m-2 btn btn-primary"
-            onClick={() => onUpdate()
-
-            }
+        
+        <button type="submit" className="m-2 btn btn-primary"
         >Update</button>
+        </form>
     </>
+    
 };

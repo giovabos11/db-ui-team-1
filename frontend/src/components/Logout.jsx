@@ -10,10 +10,12 @@ export const Logout = ({}) => {
     }
 
     return <>
+    <div className="ml-2">
         <Button 
         onClick = {handleLogout}>
             Logout
         </Button>
-    
+    </div>
     </>
+    
 }

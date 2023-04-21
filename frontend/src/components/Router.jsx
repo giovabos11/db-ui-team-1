@@ -6,6 +6,7 @@ import { NewAccount } from "./NewAccount";
 import { Profile } from "./profile/Profile";
 import { WorkoutGallery } from "./workout/WorkoutGallery";
 import { ExerciseGallery } from "./exercise/ExerciseGallery";
+import { Settings } from "./profile/Settings";
 
 export const Router = () => {
   

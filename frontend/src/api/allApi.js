@@ -73,8 +73,8 @@ export const sign_up = (user_type, first_name, last_name, age, email, password, 
 
 });
 
-export const update_user_info = (id, user_type, first_name, last_name, age, email, password, onSuccess) => new Promise((resolve, reject) => {
-    if (!user_type || !first_name || !last_name || !age || !email || !password) {
+export const update_user_info = (id, first_name, last_name, age, email, password, onSuccess) => new Promise((resolve, reject) => {
+    if (!id || !first_name || !last_name || !age || !email || !password) {
         const error = new Error("All fields must be filled");
         alert(error);
         reject(error);
@@ -82,18 +82,17 @@ export const update_user_info = (id, user_type, first_name, last_name, age, emai
         return;
     }
     const user = {
-        user_type: user_type,
+        user_id: id,
         first_name: first_name,
         last_name: last_name,
         age: age,
         email: email,
         password: password,
     };
-    axios.put(`${apiEndpoint}/profile/${id}`, user)
+    axios.put(`${apiEndpoint}/profile/settings/${id}`, user)
         .then((response) => {
             alert(response.data);
 
-            onSuccess();
 
             resolve(response.data);
         }).catch(error => {
@@ -166,3 +165,31 @@ export const add_workouts_from_exercises = (user_type, user_id, exercise_list, m
             alert(err);
         });
 });
+export const get_user_workouts = (user_id) => new Promise((resolve, reject) => {
+
+    axios
+        .get(apiEndpoint + `/profile/workouts/${user_id}`)
+        .then((res) => {
+            resolve(res.data);
+            return(res.data);
+        })
+        .catch((err) => {
+            alert(err);
+        });
+});
+export const delete_user_workout = (user_id, user_type, workout_id) => new Promise((resolve, reject) => {
+    axios
+            .delete(
+                apiEndpoint +
+                    `/profile/workouts/${user_id}/${user_type}/${workout_id}`
+            )
+            .then((res) => {
+                alert(res.data);
+                resolve(res.data);
+            })
+            .catch((err) => {
+                
+                alert(err);
+            });
+
+})

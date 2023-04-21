@@ -40,7 +40,7 @@ export const Sidebar = ({setInSettings, setInFood, setInCoach, setInWorkouts, fi
 
             <div
                 className=" bg-dark py-3 pl-0 "
-                style={{ width: "30vh", height: "93.2vh" }}>
+                style={{ width: "30vh" }}>
 
                 
 
