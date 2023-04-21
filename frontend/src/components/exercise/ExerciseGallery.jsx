@@ -42,7 +42,7 @@ export const ExerciseGallery = ({ setInExercise, setInWorkout }) => {
         <Link to="../gallery/workout" className="btn text-white m-2" style={{ backgroundColor: "#A8BA9A", outlineColor: "#A8BA9A" }}>Workouts</Link>
         <Link to="../gallery/exercise" className="btn text-white m-2" style={{ backgroundColor: "#C8E2C0", outlineColor: "#A8BA9A" }}>Exercises</Link>
       </div>
-      <div className="container">
+      <div className="container text-center">
         
         {
           
