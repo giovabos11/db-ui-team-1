@@ -25,4 +25,19 @@ profileRouter.put("/settings/:user_id", (req, res) => {
     });
 });
 
+profileRouter.get("/workouts/:user_id", (req, res) => {
+    const query = `SELECT Workout_Users.workout_id, Workouts.muscle_group, Workouts.week_day, Workouts.duration, Workouts.description
+    FROM Workout_Users
+    INNER JOIN Workouts ON Workout_Users.workout_id = Workouts.workout_id
+    WHERE Workout_Users.trainee_id = ${req.params["user_id"]} OR Workout_Users.coach_id = ${req.params["user_id"]};`;
+
+    connection.query(query, (err, rows, fields) => {
+        if (err) throw err;
+
+        res.status(200);
+        console.log(rows);
+        res.send(rows);
+    });
+});
+
 export { profileRouter };

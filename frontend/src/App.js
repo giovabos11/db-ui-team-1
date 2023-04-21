@@ -188,6 +188,21 @@ function App() {
             });
     };
 
+    const get_user_workouts = () => {
+        const user = {
+            user_id: 3,
+        };
+
+        axios
+            .get(url + `/profile/workouts/${user.user_id}`)
+            .then((res) => {
+                alert(res.data);
+            })
+            .catch((err) => {
+                alert(err);
+            });
+    };
+
     return (
         <div className="App">
             <h1>Hello World!</h1>
@@ -209,6 +224,7 @@ function App() {
             <button onClick={update_profile_infomation}>
                 Update profile info
             </button>
+            <button onClick={get_user_workouts}>Get user workouts</button>
         </div>
     );
 }
