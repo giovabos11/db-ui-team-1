@@ -1,5 +1,5 @@
 import axios from "axios";
-import { AppContext } from "../components/AppContext";
+import { AppContext } from "../components/global/AppContext";
 import { useContext } from "react";
 
 const apiEndpoint = "http://localhost:8000";
@@ -194,9 +194,33 @@ export const delete_user_workout = (user_id, user_type, workout_id) => new Promi
 
 })
 
-export const add_user_food = (user_id, name, protein_amount, carbohidrate_amount, fat_amount) => new Promise((resolve, reject) => {
+export const add_user_food = (user_type, user_id, name, protein_amount, carbohidrate_amount, fat_amount) => new Promise((resolve, reject) => {
+    
+    if (!name || !protein_amount || !carbohidrate_amount || !fat_amount) {
+        const error = new Error("All fields must be filled");
+        alert(error);
+        reject(error);
+
+        return;
+    }
+    if (typeof((protein_amount)) !== 'number' || typeof((carbohidrate_amount)) !== 'number' || typeof((fat_amount)) !== 'number')
+    {
+        const error = new Error("Enter only numbers in protein, carbs, and fat fields");
+        alert(error);
+        reject(error);
+        return;
+    }
+    if(user_type == 1){
+        const error = new Error("Cannot submit food as a coach");
+        alert(error);
+        reject(error);
+        
+        return;
+    }
+
+    
     const data = {
-        user_id: 3,
+        user_id: user_id,
         name: name,
         protein_amount: protein_amount,
         carbohidrate_amout: carbohidrate_amount,
@@ -219,7 +243,8 @@ export const get_user_food = (user_id) => new Promise((resolve, reject) => {
     .get(apiEndpoint + `/profile/food/${user_id}`)
     .then((res) => {
         resolve(res.data);
-        alert(res.data);
+        
+        return (res.data);
     })
     .catch((err) => {
         alert(err);

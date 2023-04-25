@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { AppContext } from "../AppContext";
+import { AppContext } from "../global/AppContext";
 import { update_user_info } from "../../api/allApi";
 
 export const Settings = ({ }) => {
@@ -28,6 +28,11 @@ export const Settings = ({ }) => {
         appContext.setEmail(email);
         appContext.setPassword(password);
 
+        sessionStorage.setItem("firstName",firstName);
+        sessionStorage.setItem("lastName", lastName);
+        sessionStorage.setItem("age", age);
+        sessionStorage.setItem("email", email);
+        sessionStorage.setItem("password", password);
       };
     return <>
         <form onSubmit={handleSubmit}>

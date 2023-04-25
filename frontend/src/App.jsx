@@ -2,10 +2,10 @@ import "./App.css";
 import axios from "axios";
 import { Homepage } from "./components/homepage/Homepage";
 import { Profile } from "./components/profile/Profile"
-import { Login } from "./components/Login"
-import { NewAccount } from "./components/NewAccount";
+import { Login } from "./components/account/Login"
+import { NewAccount } from "./components/account/NewAccount";
 import { Router } from "./components/Router";
-import { AppProvider } from "./components/AppContext";
+import { AppProvider } from "./components/global/AppContext";
 
 
 function App() {

@@ -1,5 +1,5 @@
 import { Button } from "react-bootstrap"
-import { AppContext } from "./AppContext"
+import { AppContext } from "../global/AppContext"
 import { useContext } from "react"
 
 export const Logout = ({}) => {

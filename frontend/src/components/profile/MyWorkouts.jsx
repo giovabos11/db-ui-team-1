@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { delete_user_workout, delete_workout, get_user_workouts } from "../../api/allApi";
-import { AppContext } from "../AppContext";
+import { AppContext } from "../global/AppContext";
 import { WorkoutCard } from "../workout/WorkoutCard";
 
 export const MyWorkouts = () => {

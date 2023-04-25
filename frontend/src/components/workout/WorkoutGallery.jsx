@@ -3,7 +3,7 @@ import { WorkoutCard } from "./WorkoutCard";
 import { Header } from "../global/Header"
 import { Link } from "react-router-dom";
 import { add_workouts_to_list, get_workouts } from "../../api/allApi";
-import { AppContext } from "../AppContext";
+import { AppContext } from "../global/AppContext";
 export const WorkoutGallery = ({ }) => {
   const [cartItems, setCartItems] = useState([]);
   const [workouts, setWorkouts] = useState([]);

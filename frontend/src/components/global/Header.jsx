@@ -2,9 +2,9 @@ import React, { useContext, useState } from "react";
 import { Cart } from "../exercise/Cart";
 import { ProfileCard } from "../profile/ProfileCard";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { AppContext } from "../AppContext";
+import { AppContext } from "./AppContext";
 import { add_workouts_from_exercises } from "../../api/allApi";
-import { Logout } from "../Logout";
+import { Logout } from "../account/Logout";
 
 export const Header = ({ cartItems, setCartItems }) => {
 
@@ -35,7 +35,7 @@ export const Header = ({ cartItems, setCartItems }) => {
       <div className="d-flex justify-content-between py-1">
       <NavLink to="../" style={{ textDecoration: "none", color: "black" }}>
         <div className="d-flex">
-        <h5 className="m-3">Workout App</h5>
+        <h5 className="m-3">Pump Pal</h5>
         
         <img src="https://cdn.discordapp.com/attachments/498672158445404161/1100211795492352020/dumbellgood-removebg-preview-trimmed.png" alt="dumbell image"
         

@@ -3,10 +3,10 @@ import axios from "axios";
 import { Form, Button } from "react-bootstrap";
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Header } from "./global/Header";
+import { Header } from "../global/Header";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-import { login } from "../api/allApi";
-import { AppContext } from "./AppContext";
+import { login } from "../../api/allApi";
+import { AppContext } from "../global/AppContext";
 export const Login = ({}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

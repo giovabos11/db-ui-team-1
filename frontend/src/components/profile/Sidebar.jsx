@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AppContext } from "../AppContext";
+import { AppContext } from "../global/AppContext";
 
 export const Sidebar = ({setInSettings, setInFood, setInCoach, setInWorkouts, firstName}) => {
   const appContext = useContext(AppContext);

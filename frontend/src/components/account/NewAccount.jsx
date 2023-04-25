@@ -4,9 +4,9 @@ import axios from "axios";
 import { Form, Button } from "react-bootstrap";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Header } from "./global/Header";
-import { sign_up } from "../api/allApi";
-import { AppContext } from "./AppContext";
+import { Header } from "../global/Header";
+import { sign_up } from "../../api/allApi";
+import { AppContext } from "../global/AppContext";
 
 export const NewAccount = () => {
   const [firstName, setFirstName] = useState("");
