@@ -37,7 +37,10 @@ export const Header = ({ cartItems, setCartItems }) => {
         <div className="d-flex">
         <h5 className="m-3">Workout App</h5>
         
-        <img src=""></img>
+        <img src="https://cdn.discordapp.com/attachments/498672158445404161/1100211795492352020/dumbellgood-removebg-preview-trimmed.png" alt="dumbell image"
+        
+        className="mt-3"
+                style={{ maxWidth: "3rsem", maxHeight: "1.7rem" }}></img>
         </div>
       </NavLink>
 
