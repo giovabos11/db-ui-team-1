@@ -199,21 +199,20 @@ export const add_user_food = (user_type, user_id, name, protein_amount, carbohid
     if (!name || !protein_amount || !carbohidrate_amount || !fat_amount) {
         const error = new Error("All fields must be filled");
         alert(error);
-        reject(error);
+        
 
         return;
     }
-    if (typeof((protein_amount)) !== 'number' || typeof((carbohidrate_amount)) !== 'number' || typeof((fat_amount)) !== 'number')
-    {
-        const error = new Error("Enter only numbers in protein, carbs, and fat fields");
+    if (isNaN(protein_amount) || isNaN(carbohidrate_amount) || isNaN(fat_amount)) {
+        const error = new Error('Protein, Carbohydrate and Fat amounts must be numbers');
         alert(error);
-        reject(error);
+        
         return;
     }
     if(user_type == 1){
         const error = new Error("Cannot submit food as a coach");
         alert(error);
-        reject(error);
+        
         
         return;
     }
