@@ -20,7 +20,7 @@ export const Router = () => {
         <Route path="gallery/workout" element={<WorkoutGallery />} />
         <Route path="gallery/exercise" element={<ExerciseGallery />} />
         <Route path="profile" element={ <Profile />} />
-        <Route path="*" element={<ErrorPage/>}/>
+        <Route path="profile/settings" element={<Settings/>}/>
       </Routes>
     </BrowserRouter>
   );
