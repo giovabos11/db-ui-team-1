@@ -12,22 +12,7 @@ export const Header = ({ cartItems, setCartItems }) => {
   const location = useLocation();
   const appContext = useContext(AppContext);
 
-  const finalizeWorkout = () => {
-    if (cartItems.length !== 0) {
-      let exercisesIds = [];
-
-      cartItems.forEach(item => {
-        exercisesIds.push(item.id);
-      });
-
-
-      add_workouts_from_exercises(appContext.type, appContext.id, exercisesIds, "Arms", 12, "friday", "WOOOHOOOOOOOOOOOOOOO");
-      setCartItems([]);
-    }
-
-
-
-  }
+  
 
 
   return (
@@ -65,9 +50,18 @@ export const Header = ({ cartItems, setCartItems }) => {
                   <h5 className="text-center">My Workout</h5>
                   <Cart cartItems={cartItems} setCartItems={setCartItems} />
                 </div>
-                <button className="btn btn-primary ml-3"
-                  onClick={() => setShowPopup(true)}
-                >Finalize Workout</button>
+                <button className="btn btn-primary ml-3" onClick={() => {
+                  if (cartItems.length > 0) {
+                    setShowPopup(true);
+                  }
+                  else{
+                    const error = "Cart is empty!"
+                    alert(error);
+                  }
+                }}>
+                  Finalize Workout
+                </button>
+
 
               </>
 
@@ -142,7 +136,9 @@ export const Header = ({ cartItems, setCartItems }) => {
       <div className="">
         <WorkoutForm
           showPopup={showPopup}
-          setShowPopup={setShowPopup} />
+          setShowPopup={setShowPopup}
+          cartItems={cartItems}
+          setCartItems={setCartItems} />
       </div>
 
     </div>

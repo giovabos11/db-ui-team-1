@@ -19,7 +19,12 @@ export const WorkoutGallery = ({ }) => {
   }, [])
 
   const handleAdd = (id) =>{
-    add_workouts_to_list(appContext.type, appContext.id, id)
+    // can only add 1 of each workout
+    const workoutExists = cartItems.some(item => item.id === id);
+    if(!workoutExists){
+      add_workouts_to_list(appContext.type, appContext.id, id);
+      setCartItems([...cartItems, {id: id}]);
+    }
   }
 
   return <>

@@ -32,7 +32,7 @@ export const MyWorkouts = () => {
       {
         userWorkouts.map((workout, index) => {
           return <React.Fragment key={index}>
-            <WorkoutCard
+            <WorkoutCard 
 
               id={workout.workout_id}
               muscleGroup={workout.muscle_group}

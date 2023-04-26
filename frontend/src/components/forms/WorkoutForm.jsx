@@ -1,14 +1,15 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { DescriptionForm } from "./DescriptionForm"
 import { MuscleGroupForm } from "./MuscleGroupForm"
 import { SubmitForm } from "./SubmitForm"
 import { Weekday } from "./WeekdayForm"
 import { Button } from "react-bootstrap"
+import { AppContext } from "../global/AppContext"
+import { add_workouts_from_exercises } from "../../api/allApi"
 
 
-export const WorkoutForm = ({ showPopup, setShowPopup }) => {
-    
-
+export const WorkoutForm = ({ showPopup, setShowPopup,cartItems, setCartItems }) => {
+    const appContext = useContext(AppContext);
     const [description, setDescription] = useState("");
     const [muscle, setMuscle] = useState("");
     const [weekday, setWeekday] = useState("");
@@ -27,17 +28,30 @@ export const WorkoutForm = ({ showPopup, setShowPopup }) => {
         setWeekday(e.target.value);
     };
 
-    const handleSubmit = (e) => {
-        setShowPopup(false);
+    const handleSubmit = () => {
+        console.log("submitted form to handleSubmit");
+
+        if (cartItems.length !== 0) {
+            let exercisesIds = [];
+      
+            cartItems.forEach(item => {
+              exercisesIds.push(item.id);
+            });
+      
+            add_workouts_from_exercises(appContext.type, appContext.id, exercisesIds, muscle, exercisesIds.length * 10, weekday, description);
+            setCartItems([]);
+          }
+          setDescription("");
+          setMuscle("");
+          setWeekday("");
+          setShowPopup(false);
     }
 
     return <>
     <div className="">
     {showPopup && (
         <>
-        
-       
-        <form className="bg-dark d-flex flex-column position-fixed start-50 translate-middle-x p-3 " style={{width:"30%", zIndex:9999, top:"25%"}}>
+        <form onSubmit={handleSubmit} className="bg-dark d-flex flex-column position-fixed start-50 translate-middle-x p-3 " style={{width:"30%", zIndex:9999, top:"25%"}}>
         <label>
             <select className="form-select-lg" id="weekday" value={weekday} onChange={handleWeekday}>
                 <option value="">Choose a weekday</option>
@@ -78,7 +92,7 @@ export const WorkoutForm = ({ showPopup, setShowPopup }) => {
         </label>
 
         
-        <label onSubmit={handleSubmit} className="" style={{ height: '' }}>
+        <label  className="" style={{ height: '' }}>
             <div className="form-group">
                 <Button type="submit " className="btn btn-primary" >
                     Submit

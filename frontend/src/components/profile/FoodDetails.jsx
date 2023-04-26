@@ -47,9 +47,9 @@ export const FoodDetails = () => {
         <div className=" p-3">
             <div className="p-3">
                 <h3>Today's Macronutrient recap:</h3>
-                <h5>Proteins: {totalProtein}g</h5>
-                <h5>Carbohydrates: {totalCarbs}g</h5>
-                <h5>Fats: {totalFats}g</h5>
+                <h5>Proteins: {totalProtein ? totalProtein + 'g' : '0g'}</h5>
+                <h5>Carbohydrates: {totalCarbs ? totalCarbs + 'g' : '0g'}</h5>
+                <h5>Fats: {totalFats ? totalFats + 'g' : '0g'}</h5>
             </div>
 
             <hr />

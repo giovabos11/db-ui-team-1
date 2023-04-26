@@ -146,6 +146,7 @@ export const add_workouts_to_list = (user_type, user_id, workout_id) => new Prom
 });
 
 export const add_workouts_from_exercises = (user_type, user_id, exercise_list, muscle_group, duration, week_day, description) => new Promise((resolve, reject) => {
+    console.log("arrived in api call add_from_exerc")
     const data = {
         user_type: user_type,
         user_id: user_id,
@@ -155,7 +156,7 @@ export const add_workouts_from_exercises = (user_type, user_id, exercise_list, m
         week_day: week_day, // need to get from a form
         description: description, // need to get from a form
     };
-
+    console.log(data);
     axios
         .post(apiEndpoint + `/gallery/exercises/${data.user_id}`, data)
         .then((res) => {
