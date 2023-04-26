@@ -1,49 +1,73 @@
-export const Settings = ({ height, weight, firstName, lastName, age, email, password, setHeight, setWeight, setFirstName, setLastName,setAge, setEmail, setPassword}) => {
-    return <>
+import { useContext, useState } from "react";
+import { AppContext } from "../global/AppContext";
+import { update_user_info } from "../../api/allApi";
+
+export const Settings = ({ }) => {
+
+    const appContext = useContext(AppContext);
     
-        <div className="p-3 d-flex" >
-            <div className="flex-grow-1 ">
-            <div className="p-2 my-3">
-                <h4>First Name</h4>
-                <input type="text" value={firstName} onChange={()=>{
-                    
-                }}/>
+    const [firstName, setFirstName] = useState(appContext.firstName);
+    const [lastName, setLastName] = useState(appContext.lastName);
+    const [age, setAge] = useState(appContext.age);
+    const [email, setEmail] = useState(appContext.email);
+    const [password, setPassword] = useState(appContext.password);
+
+   
+
+    const onUpdate = () => {
+        
+        
+    }
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        // USE FUNCTION HERE TO PUT NEW DATA TO BACKEND/NOT DEPENDING ON IF SUCCESSFUL, PASS IN onUpdate FOR CALLBACK
+        update_user_info(appContext.id, firstName, lastName, age, email, password);
+        appContext.setFirstName(firstName);
+        appContext.setLastName(lastName);
+        appContext.setAge(age);
+        appContext.setEmail(email);
+        appContext.setPassword(password);
+
+        sessionStorage.setItem("firstName",firstName);
+        sessionStorage.setItem("lastName", lastName);
+        sessionStorage.setItem("age", age);
+        sessionStorage.setItem("email", email);
+        sessionStorage.setItem("password", password);
+      };
+    return <>
+        <form onSubmit={handleSubmit}>
+            <div className="p-3 d-flex" >
+                <div className="flex-grow-1 ">
+                    <div className="p-2 my-3">
+                        <label htmlFor="firstName">First Name</label>
+                        <input type="text" defaultValue={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                    </div>
+                    <div className="p-2 my-3 ">
+                        <label htmlFor="lastName">Last Name</label>
+                        <input type="text" defaultValue={lastName} onChange={(e) => setLastName(e.target.value)} />
+                    </div>
+                    <div className="p-2 my-3">
+                        <label htmlFor="age">Age</label>
+                        <input type="text" defaultValue={age} onChange={(e) => setAge(e.target.value)} />
+                    </div>
+                </div>
+
+                <div className="flex-grow-1">
+
+                    <div className="p-2 my-3">
+                        <label htmlFor="email">Email</label>
+                        <input type="text" defaultValue={email} onChange={(e) => setEmail(e.target.value)} />
+                    </div>
+                    <div className="p-2 my-3">
+                        <label htmlFor="password">Password</label>
+                        <input type="text" defaultValue={password} onChange={(e) => setPassword(e.target.value)} />
+                    </div>
+                </div>
             </div>
-            <div className="p-2 my-3 ">
-                <h4>Last Name</h4>
-                <input type="text" value={lastName}/>
-                            </div>
-            <div className="p-2 my-3">
-                <h4>Age</h4>
-                <input type="text" value={age}/>
-            </div>
-            <div className="p-2 my-3">
-                <h4>Height</h4>
-                <input type="text" value={height}/>
-            </div>
-            <div className="p-2 my-3">
-                <h4>Weight</h4>
-                <input type="text" value={weight}/>
-            </div>
-            </div>
-            
-            <div className="flex-grow-1">
-            
-            <div className="p-2 my-3">
-                <h4>Email</h4>
-                <input type="text" value={email}/>
-            </div>
-            <div className="p-2 my-3">
-                <h4>Password</h4>
-                <input type="text" value={password}/>
-            
-            </div>
-            </div>
-        </div>
-        <button className="m-2 btn btn-primary"
-        onClick={()=>{
-            
-        }}
+        
+        <button type="submit" className="m-2 btn btn-primary"
         >Update</button>
+        </form>
     </>
+    
 };

@@ -12,7 +12,7 @@ export const Homepage = () => {
         <img
           src="https://images.pexels.com/photos/40751/running-runner-long-distance-fitness-40751.jpeg?auto=compress&cs=tinysrgb&w=1600"
           alt="Workout"
-          className="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
+          className="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" style={{}}
         />
         <div className="position-relative" >
           <h1 className="text-center text-white">The Best Workout App Ever Created</h1>

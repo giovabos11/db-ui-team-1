@@ -2,83 +2,20 @@ import "./App.css";
 import axios from "axios";
 import { Homepage } from "./components/homepage/Homepage";
 import { Profile } from "./components/profile/Profile"
-import { Login } from "./components/Login"
-import { NewAccount } from "./components/NewAccount";
+import { Login } from "./components/account/Login"
+import { NewAccount } from "./components/account/NewAccount";
 import { Router } from "./components/Router";
+import { AppProvider } from "./components/global/AppContext";
 
 
 function App() {
     const url = "http://localhost:8000/";
 
-
-
-    const checkAPI = () => {
-        axios
-            .get(url + "/")
-            .then((res) => {
-                alert(res.data);
-            })
-            .catch((err) => {
-                alert(err);
-            });
-    };
-
-    const user = {
-        first: "Giovanni",
-        last: "Boscan",
-        age: 20,
-        admin: true,
-    };
-
-    const sendJSON = () => {
-        console.log(user);
-
-        axios
-            .put(url + "/parse", user)
-            .then((res) => {
-                alert(res.data);
-            })
-            .catch((err) => {
-                alert(err);
-            });
-    };
-
-    const sendUser = () => {
-        axios
-            .post(url + "/user", user)
-            .then((res) => {
-                alert(res.data);
-            })
-            .catch((err) => {
-                alert(err);
-            });
-    };
-
-    const getUsers = () => {
-        axios
-            .post(url + "/users")
-            .then((res) => {
-                alert(JSON.stringify(res.data));
-            })
-            .catch((err) => {
-                alert(err);
-            });
-    };
-
-    const clearUsers = () => {
-        axios
-            .post(url + "/users/clear")
-            .then((res) => {
-                alert(res.data);
-            })
-            .catch((err) => {
-                alert(err);
-            });
-    };
-
-
     return (
-        <Router />
+        <AppProvider>
+           <Router /> 
+        </AppProvider>
+        
     );
 }
 

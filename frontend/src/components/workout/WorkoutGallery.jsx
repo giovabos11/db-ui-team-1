@@ -1,42 +1,66 @@
-import { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { WorkoutCard } from "./WorkoutCard";
 import { Header } from "../global/Header"
 import { Link } from "react-router-dom";
-export const WorkoutGallery = ({}) => {
+import { add_workouts_to_list, get_workouts } from "../../api/allApi";
+import { AppContext } from "../global/AppContext";
+export const WorkoutGallery = ({ }) => {
   const [cartItems, setCartItems] = useState([]);
+  const [workouts, setWorkouts] = useState([]);
+  const appContext = useContext(AppContext);
+  
+  useEffect(() => {
+    const fetch_workouts = async () => {
+      get_workouts().then(response => setWorkouts(response));
+    }
 
+    fetch_workouts();
+
+  }, [])
+
+  const handleAdd = (id) =>{
+    // can only add 1 of each workout
+    const workoutExists = cartItems.some(item => item.id === id);
+    if(!workoutExists){
+      add_workouts_to_list(appContext.type, appContext.id, id);
+      setCartItems([...cartItems, {id: id}]);
+    }
+  }
 
   return <>
-    <div className="" style={{ backgroundColor: "#b7ccdf", minHeight:"100vh"}}>
-    <div className="py-3">
+    <div className="" style={{ backgroundColor: "#b7ccdf", minHeight: "100vh" }}>
+      <div className="py-3">
         <Header
           cartItems={cartItems}
           setCartItems={setCartItems}
         />
       </div>
-        <h1 className="text-center">Workout Gallery</h1>
-        <div className="m-3 text-center">
-          <Link to="../workout" className="btn text-white m-2" style={{ backgroundColor: "#C8E2C0", outlineColor: "#A8BA9A" }}>Workouts</Link>
-          <Link to ="../exercise"className="btn text-white m-2" style={{ backgroundColor: "#A8BA9A", outlineColor: "#A8BA9A" }}>Exercises</Link>
-        </div>
-      
+      <h1 className="text-center">Workout Gallery</h1>
+      <div className="m-3 text-center">
+        <Link to="../gallery/workout" className="btn text-white m-2" style={{ backgroundColor: "#C8E2C0", outlineColor: "#A8BA9A" }}>Workouts</Link>
+        <Link to="../gallery/exercise" className="btn text-white m-2" style={{ backgroundColor: "#A8BA9A", outlineColor: "#A8BA9A" }}>Exercises</Link>
+      </div>
+
       <div className="container workout-grid">
-        <WorkoutCard id="1" muscleGroup="Chest" weekDay="Friday" duration="50" description="Test test description 123"
+        {
 
-        />
-        <WorkoutCard  id="2" muscleGroup="Legs" weekDay="Saturday" duration="50" description="Test test description 123"
-        />
-        <WorkoutCard id="3" muscleGroup="Chest" weekDay="Sunday" duration="50" description="Test test description 123"
+          workouts.map((workout, index) => {
+            return<React.Fragment key={index}>
+              <WorkoutCard
+              
+              id = {workout.workout_id}
+              muscleGroup={workout.muscle_group}
+              weekDay={workout.week_day}
+              duration={workout.duration}
+              description={workout.description}
+              handleAdd={handleAdd}
+              ></WorkoutCard>
+            </React.Fragment>
+          })
 
-        />
-        <WorkoutCard  id="4" muscleGroup="Chest" weekDay="Monday" duration="50" description="Test test description 123"
-        />
-        <WorkoutCard  id="5" muscleGroup="Back" weekDay="Tuesday" duration="50" description="Test test description 123"
-        />
-        <WorkoutCard  id="6" muscleGroup="Back" weekDay="Thursday" duration="50" description="Test test description 123"
-        /> 
+        }
       </div>
     </div>
-    
+
   </>
 };

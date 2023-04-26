@@ -1,10 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 import { Form, Button } from "react-bootstrap";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Header } from "./global/Header";
+import { Header } from "../global/Header";
+import { sign_up } from "../../api/allApi";
+import { AppContext } from "../global/AppContext";
 
 export const NewAccount = () => {
   const [firstName, setFirstName] = useState("");
@@ -15,26 +17,37 @@ export const NewAccount = () => {
   const [registerAs, setRegisterAs] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   
+  const appContext = useContext(AppContext);
+
+  const navigate = useNavigate();
+  
+  const onSuccess = () => {
+    navigate("../gallery/workout");
+
+    appContext.setType(registerAs);
+    appContext.setFirstName(firstName);
+    appContext.setLastName(lastName);
+    appContext.setAge(age);
+    appContext.setEmail(email);
+    appContext.setPassword(password);
+    
+
+   
+    sessionStorage.setItem("type",registerAs);
+    sessionStorage.setItem("firstName", firstName);
+    sessionStorage.setItem("lastName", lastName);
+    sessionStorage.setItem("age", age);
+    sessionStorage.setItem("email", email);
+    sessionStorage.setItem("password", password);
+  }
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await axios.post("/new-account", {
-        firstName,
-        lastName,
-        email,
-        password,
-        age,
-        registerAs,
-      });
-      if (response.status === 201) {
-        // account created successfully
-      } else {
-        setErrorMessage("Failed to create account");
-      }
-    } catch (error) {
-      alert("Something went wrong. Please try again later.");
-    }
-  };
+    event.preventDefault(); // Prevent default form submission behavior
+    let tempId;
+    tempId = await sign_up(registerAs, firstName, lastName, age, email, password, onSuccess);
+    appContext.setId(tempId);
+    sessionStorage.setItem("id", tempId);
+    console.log(appContext.id);
+  }
 
   const handleFirstNameChange = (event) => {
     setFirstName(event.target.value);
@@ -77,8 +90,8 @@ export const NewAccount = () => {
             value={registerAs}
           >
             <option value="">Select account type</option>
-            <option value="trainee">Trainee</option>
-            <option value="coach">Coach</option>
+            <option value={0}>Trainee</option>
+            <option value={1}>Coach</option>
           </Form.Control>
         </Form.Group>
 
@@ -132,7 +145,9 @@ export const NewAccount = () => {
           />
         </Form.Group>
         <div className="d-flex justify-content-center m-4">
-        <Button variant="" type="submit" className="text-white d-flex justify-content-center mx-2" style={{backgroundColor:"#FECBA5", outlineColor:"#FECBA5"}}>
+        <Button  variant="" type="submit" className="text-white d-flex justify-content-center mx-2" style={{backgroundColor:"#FECBA5", outlineColor:"#FECBA5"}}
+
+        >
           Create Account
         </Button>
         </div>
