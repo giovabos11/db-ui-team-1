@@ -60,11 +60,11 @@ export const Sidebar = ({setInSettings, setInFood, setInCoach, setInWorkouts, fi
                     }
                     className="btn btn-success my-3">My Food</button>
 
-                    <button 
+                    {/* <button 
                     onClick={ () =>
                         changeTabs("coach")
                     }
-                    className="btn btn-success my-3">My Coach</button>
+                    className="btn btn-success my-3">My Coach</button> */}
 
                     <button 
                     onClick={ () =>
