@@ -2,10 +2,6 @@
   font-size: 12pt;
   box-sizing: border-box;
 }
-.App {
-  
-}
-
 .workout-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
