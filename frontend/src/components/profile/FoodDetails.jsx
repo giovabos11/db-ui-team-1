@@ -17,30 +17,23 @@ export const FoodDetails = () => {
 
         add_user_food(appContext.type, appContext.id, foodName, proteinAmount, carbohidrateAmount, fatAmount);
 
-        const fetch_user_food = async () => {
-            get_user_food(appContext.id).then(response => {
-              setTotalProtein(response[0]["total_protein_amount"]);
-              setTotalCarbs(response[0]["total_carbohidrate_amount"]);
-              setTotalFats(response[0]["total_fat_amount"]);
-          });
-          }
-      
-          fetch_user_food();
-    }
-    
 
-    useEffect(() => {
-        const fetch_user_food = async () => {
-          get_user_food(appContext.id).then(response => {
+
+        await fetch_user_food();
+    }
+
+    const fetch_user_food = async () => {
+        get_user_food(appContext.id).then(response => {
             setTotalProtein(response[0]["total_protein_amount"]);
             setTotalCarbs(response[0]["total_carbohidrate_amount"]);
             setTotalFats(response[0]["total_fat_amount"]);
         });
-        }
-    
+    }
+
+    useEffect(() => {
         fetch_user_food();
-    
-      }, [totalProtein])
+
+    }, [])
     return <>
 
 
@@ -65,21 +58,21 @@ export const FoodDetails = () => {
                     <input type="text" onChange={(e) => setProteinAmount(e.target.value)} />
                 </div>
                 <div className="p-3">
-                <label htmlFor="carbAmount">Carbohydrate Amount (grams)</label>
+                    <label htmlFor="carbAmount">Carbohydrate Amount (grams)</label>
                     <input type="text" onChange={(e) => setCarbohidrateAmount(e.target.value)} />
                 </div>
                 <div className="p-3">
-                <label htmlFor="fatAmount">Fat Amount (grams)</label>
-                <input type="text" onChange={(e) => setFatAmount(e.target.value)} />
+                    <label htmlFor="fatAmount">Fat Amount (grams)</label>
+                    <input type="text" onChange={(e) => setFatAmount(e.target.value)} />
                 </div>
 
 
 
                 <button type="submit" className="m-2 btn btn-primary">Submit Food</button>
-                </form >
+            </form >
         </div>
-        
-    
+
+
 
     </>
 }
