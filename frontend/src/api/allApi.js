@@ -109,8 +109,9 @@ export const get_exercises = () => new Promise((resolve, reject) => {
             resolve(response.data);
             return response.data;
         })
-        .catch((err) => {
-            alert(err);
+        .catch((error) => {
+            alert(error);
+            reject(error);
         });
 });
 
@@ -121,8 +122,9 @@ export const get_workouts = () => new Promise((resolve, reject) => {
             resolve(response.data);
             return response.data;
         })
-        .catch((err) => {
-            alert(err);
+        .catch((error) => {
+            alert(error);
+            reject(error);
         });
 })
 
@@ -142,12 +144,14 @@ export const add_workouts_to_list = (user_type, user_id, workout_id) => new Prom
 
         axios
             .post(apiEndpoint + `/gallery/workouts/${data.user_id}`, data)
-            .then((res) => {
+            .then((response) => {
                 const message = "Go check out your added workout in profile!"
+                resolve(message);
                 alert(message);
             })
-            .catch((err) => {
-                alert(err);
+            .catch((error) => {
+                alert(error);
+                reject(error);
             });
     });
 });
@@ -164,25 +168,27 @@ export const add_workouts_from_exercises = (user_type, user_id, exercise_list, m
     };
     axios
         .post(apiEndpoint + `/gallery/exercises/${data.user_id}`, data)
-        .then((res) => {
+        .then((response) => {
             const message = "Go check out your added workout in profile!"
-
+            resolve(message);
             alert(message);
         })
-        .catch((err) => {
-            alert(err);
+        .catch((error) => {
+            alert(error);
+            reject(error)
         });
 });
 export const get_user_workouts = (user_id) => new Promise((resolve, reject) => {
 
     axios
         .get(apiEndpoint + `/profile/workouts/${user_id}`)
-        .then((res) => {
-            resolve(res.data);
-            return(res.data);
+        .then((response) => {
+            resolve(response.data);
+            return(response.data);
         })
-        .catch((err) => {
-            alert(err);
+        .catch((error) => {
+            alert(error);
+            reject(error);
         });
 });
 export const delete_user_workout = (user_id, user_type, workout_id) => new Promise((resolve, reject) => {
@@ -191,38 +197,33 @@ export const delete_user_workout = (user_id, user_type, workout_id) => new Promi
                 apiEndpoint +
                     `/profile/workouts/${user_id}/${user_type}/${workout_id}`
             )
-            .then((res) => {
-                resolve(res.data);
+            .then((response) => {
+                resolve(response.data);
             })
-            .catch((err) => {
+            .catch((error) => {
                 
-                alert(err);
+                alert(error);
             });
 
 })
 
-export const add_user_food = (user_type, user_id, name, protein_amount, carbohidrate_amount, fat_amount) => new Promise((resolve, reject) => {
+export const add_user_food = (user_id, name, protein_amount, carbohidrate_amount, fat_amount) => new Promise((resolve, reject) => {
     
     if (!name || !protein_amount || !carbohidrate_amount || !fat_amount) {
-        const error = new Error("All fields must be filled");
+        const error = ("All fields must be filled");
         alert(error);
         
-
+        reject(error);
         return;
     }
     if (isNaN(protein_amount) || isNaN(carbohidrate_amount) || isNaN(fat_amount)) {
-        const error = new Error('Protein, Carbohydrate and Fat amounts must be numbers');
+        const error = ('Protein, Carbohydrate and Fat amounts must be numbers');
         alert(error);
         
+        reject(error);
         return;
     }
-    if(user_type == 1){
-        const error = new Error("Cannot submit food as a coach");
-        alert(error);
-        
-        
-        return;
-    }
+    
 
     
     const data = {
@@ -234,11 +235,12 @@ export const add_user_food = (user_type, user_id, name, protein_amount, carbohid
     };
     axios
             .post(apiEndpoint + `/profile/food/${user_id}`, data)
-            .then((res) => {
-                resolve(res.data);
+            .then((response) => {
+                resolve(response.data);
             })
-            .catch((err) => {
-                alert(err);
+            .catch((error) => {
+                alert(error);
+                reject(error);
             });
 })
 
@@ -246,13 +248,14 @@ export const add_user_food = (user_type, user_id, name, protein_amount, carbohid
 export const get_user_food = (user_id) => new Promise((resolve, reject) => {
     axios
     .get(apiEndpoint + `/profile/food/${user_id}`)
-    .then((res) => {
-        resolve(res.data);
+    .then((response) => {
+        resolve(response.data);
         
-        return (res.data);
+        return (response.data);
     })
-    .catch((err) => {
-        alert(err);
+    .catch((error) => {
+        alert(error);
+        reject(error);
     });
 
 })
