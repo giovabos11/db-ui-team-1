@@ -40,7 +40,7 @@ export const FoodDetails = () => {
     
         fetch_user_food();
     
-      }, [])
+      }, [totalProtein])
     return <>
 
 

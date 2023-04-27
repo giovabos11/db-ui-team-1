@@ -12,7 +12,7 @@ export const Header = ({ cartItems, setCartItems }) => {
   const location = useLocation();
   const appContext = useContext(AppContext);
 
-  
+
 
 
   return (
@@ -41,6 +41,34 @@ export const Header = ({ cartItems, setCartItems }) => {
           </NavLink>
 
           <div className="d-flex mx-4 align-items-center">
+            {appContext.firstName !== "" && location.pathname === "/" && (
+              <>
+
+
+               
+                <ProfileCard
+                  firstName={appContext.firstName}
+                />
+                 <NavLink
+                  to="../gallery/workout"
+                  className="btn btn-primary mx-3"
+                >
+                  Back to Gallery
+                </NavLink>
+              </>
+            )}
+
+            {location.pathname === "/profile" && (
+              <>
+
+                <NavLink
+                  to="../gallery/workout"
+                  className="btn btn-primary mx-3"
+                >
+                  Back to Gallery
+                </NavLink>
+              </>
+            )}
             {location.pathname === "/gallery/exercise" && (
               <>
                 <ProfileCard
@@ -54,7 +82,7 @@ export const Header = ({ cartItems, setCartItems }) => {
                   if (cartItems.length > 0) {
                     setShowPopup(true);
                   }
-                  else{
+                  else {
                     const error = "Cart is empty!"
                     alert(error);
                   }
@@ -94,31 +122,7 @@ export const Header = ({ cartItems, setCartItems }) => {
               </>
             )}
 
-            {appContext.firstName !== "" && location.pathname === "/" && (
-              <>
 
-
-                <NavLink
-                  to="../gallery/workout"
-                >
-                  Back to Gallery
-                </NavLink>
-                <ProfileCard
-                  firstName={appContext.firstName}
-                />
-              </>
-            )}
-
-            {location.pathname === "/profile" && (
-              <>
-
-                <NavLink
-                  to="../gallery/workout"
-                >
-                  Back to Gallery
-                </NavLink>
-              </>
-            )}
             {
               appContext.firstName !== "" && (
                 <NavLink className="mx-4" to="../" style={{ textDecoration: "none", color: "black" }}>

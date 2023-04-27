@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export const ProfileCard = ({firstName}) => {
     return (
-        <div className="d-flex align-items-center ">
+        <div className="d-flex align-items-center mx-3 ">
             <div className="text-center">
                 <p className="mb-0">{firstName}</p>
                 <Link to={'../profile'}>My Profile
