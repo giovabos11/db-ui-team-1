@@ -125,7 +125,6 @@ export const get_workouts = () => new Promise((resolve, reject) => {
             alert(err);
         });
 })
-
 export const add_workouts_to_list = (user_type, user_id, workout_id) => new Promise((resolve, reject) => {
     const data = {
         user_type: user_type,
@@ -133,16 +132,25 @@ export const add_workouts_to_list = (user_type, user_id, workout_id) => new Prom
         workout_id: workout_id,
     };
 
-    axios
-        .post(apiEndpoint + `/gallery/workouts/${data.user_id}`, data)
-        .then((res) => {
-            const message = "Go check out your added workout in profile!"
+    // Check if the workout already exists in the user's list
+    get_user_workouts(user_id).then((workouts) => {
+        if (workouts.some((w) => w.workout_id === workout_id)) {
+            const message = "Workout already added";
             alert(message);
-        })
-        .catch((err) => {
-            alert(err);
-        });
+            return;
+        }
 
+        // If the workout does not exist, add it to the user's list
+        axios
+            .post(apiEndpoint + `/gallery/workouts/${data.user_id}`, data)
+            .then((res) => {
+                const message = "Go check out your added workout in profile!"
+                alert(message);
+            })
+            .catch((err) => {
+                alert(err);
+            });
+    });
 });
 
 export const add_workouts_from_exercises = (user_type, user_id, exercise_list, muscle_group, duration, week_day, description) => new Promise((resolve, reject) => {
@@ -151,7 +159,7 @@ export const add_workouts_from_exercises = (user_type, user_id, exercise_list, m
         user_id: user_id,
         exercise_list: exercise_list,
         muscle_group: muscle_group, // need to get from a form
-        duration: duration, // need to get from a form
+        duration: duration, // need to get from a form  
         week_day: week_day, // need to get from a form
         description: description, // need to get from a form
     };
