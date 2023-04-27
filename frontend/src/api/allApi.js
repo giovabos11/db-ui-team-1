@@ -91,7 +91,6 @@ export const update_user_info = (id, first_name, last_name, age, email, password
     };
     axios.put(`${apiEndpoint}/profile/settings/${id}`, user)
         .then((response) => {
-            alert(response.data);
 
 
             resolve(response.data);
@@ -126,7 +125,6 @@ export const get_workouts = () => new Promise((resolve, reject) => {
             alert(err);
         });
 })
-
 export const add_workouts_to_list = (user_type, user_id, workout_id) => new Promise((resolve, reject) => {
     const data = {
         user_type: user_type,
@@ -134,15 +132,25 @@ export const add_workouts_to_list = (user_type, user_id, workout_id) => new Prom
         workout_id: workout_id,
     };
 
-    axios
-        .post(apiEndpoint + `/gallery/workouts/${data.user_id}`, data)
-        .then((res) => {
-            alert(res.data);
-        })
-        .catch((err) => {
-            alert(err);
-        });
+    // Check if the workout already exists in the user's list
+    get_user_workouts(user_id).then((workouts) => {
+        if (workouts.some((w) => w.workout_id === workout_id)) {
+            const message = "Workout already added";
+            alert(message);
+            return;
+        }
 
+        // If the workout does not exist, add it to the user's list
+        axios
+            .post(apiEndpoint + `/gallery/workouts/${data.user_id}`, data)
+            .then((res) => {
+                const message = "Go check out your added workout in profile!"
+                alert(message);
+            })
+            .catch((err) => {
+                alert(err);
+            });
+    });
 });
 
 export const add_workouts_from_exercises = (user_type, user_id, exercise_list, muscle_group, duration, week_day, description) => new Promise((resolve, reject) => {
@@ -151,14 +159,16 @@ export const add_workouts_from_exercises = (user_type, user_id, exercise_list, m
         user_id: user_id,
         exercise_list: exercise_list,
         muscle_group: muscle_group, // need to get from a form
-        duration: duration, // need to get from a form
+        duration: duration, // need to get from a form  
         week_day: week_day, // need to get from a form
         description: description, // need to get from a form
     };
     axios
         .post(apiEndpoint + `/gallery/exercises/${data.user_id}`, data)
         .then((res) => {
-            alert(res.data);
+            const message = "Go check out your added workout in profile!"
+
+            alert(message);
         })
         .catch((err) => {
             alert(err);
@@ -183,7 +193,6 @@ export const delete_user_workout = (user_id, user_type, workout_id) => new Promi
                     `/profile/workouts/${user_id}/${user_type}/${workout_id}`
             )
             .then((res) => {
-                alert(res.data);
                 resolve(res.data);
             })
             .catch((err) => {
