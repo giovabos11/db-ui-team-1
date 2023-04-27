@@ -125,6 +125,7 @@ export const get_workouts = () => new Promise((resolve, reject) => {
             alert(err);
         });
 })
+
 export const add_workouts_to_list = (user_type, user_id, workout_id) => new Promise((resolve, reject) => {
     const data = {
         user_type: user_type,
@@ -132,7 +133,6 @@ export const add_workouts_to_list = (user_type, user_id, workout_id) => new Prom
         workout_id: workout_id,
     };
 
-    // Check if the workout already exists in the user's list
     get_user_workouts(user_id).then((workouts) => {
         if (workouts.some((w) => w.workout_id === workout_id)) {
             const message = "Workout already added";
@@ -140,7 +140,6 @@ export const add_workouts_to_list = (user_type, user_id, workout_id) => new Prom
             return;
         }
 
-        // If the workout does not exist, add it to the user's list
         axios
             .post(apiEndpoint + `/gallery/workouts/${data.user_id}`, data)
             .then((res) => {
