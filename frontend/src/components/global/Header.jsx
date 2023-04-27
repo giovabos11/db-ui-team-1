@@ -45,15 +45,16 @@ export const Header = ({ cartItems, setCartItems }) => {
               <>
 
 
-                <NavLink
+               
+                <ProfileCard
+                  firstName={appContext.firstName}
+                />
+                 <NavLink
                   to="../gallery/workout"
                   className="btn btn-primary mx-3"
                 >
                   Back to Gallery
                 </NavLink>
-                <ProfileCard
-                  firstName={appContext.firstName}
-                />
               </>
             )}
 
