@@ -91,7 +91,6 @@ export const update_user_info = (id, first_name, last_name, age, email, password
     };
     axios.put(`${apiEndpoint}/profile/settings/${id}`, user)
         .then((response) => {
-            alert(response.data);
 
 
             resolve(response.data);
@@ -137,7 +136,8 @@ export const add_workouts_to_list = (user_type, user_id, workout_id) => new Prom
     axios
         .post(apiEndpoint + `/gallery/workouts/${data.user_id}`, data)
         .then((res) => {
-            alert(res.data);
+            const message = "Go check out your added workout in profile!"
+            alert(message);
         })
         .catch((err) => {
             alert(err);
@@ -158,7 +158,9 @@ export const add_workouts_from_exercises = (user_type, user_id, exercise_list, m
     axios
         .post(apiEndpoint + `/gallery/exercises/${data.user_id}`, data)
         .then((res) => {
-            alert(res.data);
+            const message = "Go check out your added workout in profile!"
+
+            alert(message);
         })
         .catch((err) => {
             alert(err);
@@ -183,7 +185,6 @@ export const delete_user_workout = (user_id, user_type, workout_id) => new Promi
                     `/profile/workouts/${user_id}/${user_type}/${workout_id}`
             )
             .then((res) => {
-                alert(res.data);
                 resolve(res.data);
             })
             .catch((err) => {
