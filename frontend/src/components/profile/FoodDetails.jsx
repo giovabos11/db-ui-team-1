@@ -15,7 +15,7 @@ export const FoodDetails = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        add_user_food(appContext.type, appContext.id, foodName, proteinAmount, carbohidrateAmount, fatAmount);
+        add_user_food(appContext.id, foodName, +proteinAmount, +carbohidrateAmount, +fatAmount);
 
 
 

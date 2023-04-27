@@ -218,6 +218,7 @@ export const add_user_food = (user_id, name, protein_amount, carbohidrate_amount
     }
     if (isNaN(protein_amount) || isNaN(carbohidrate_amount) || isNaN(fat_amount)) {
         const error = ('Protein, Carbohydrate and Fat amounts must be numbers');
+        
         alert(error);
         
         reject(error);
