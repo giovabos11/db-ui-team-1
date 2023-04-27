@@ -38,31 +38,34 @@ export const WorkoutForm = ({ showPopup, setShowPopup, cartItems, setCartItems }
                 exercisesIds.push(item.id);
             });
             
-            if (description!="" && weekday!="" && muscle!="") {
+            if (description && weekday && muscle) {
                 add_workouts_from_exercises(appContext.type, appContext.id, exercisesIds, muscle, exercisesIds.length * 10, weekday, description);
                 setCartItems([]);
+                
+                setDescription("");
+                setMuscle("");
+                setWeekday("");
+                setShowPopup(false);
               }
               else {
+                
                 const error = "Not all input fields are filled"
                 
                 alert(error);
+
+                
               }
             
         }
-        setDescription("");
-        setMuscle("");
-        setWeekday("");
-        setShowPopup(false);
+        
     }
 
     return <>
         <div>
             {showPopup && (
                 <>
-                    <form onSubmit={() =>{
-                        handleSubmit();
-                        
-                    }}>
+                    <form onSubmit={
+                        handleSubmit}>
                         <div className="d-flex flex-column position-fixed start-50 translate-middle-x p-3 rounded" style={{ width: "30%", zIndex: 9999, top: "25%", backgroundColor: "#F5F5DC" }}>
                             <label>Day</label>
                                 <select className="form-select-sm" id="weekday" value={weekday} onChange={handleWeekday}>
@@ -107,19 +110,19 @@ export const WorkoutForm = ({ showPopup, setShowPopup, cartItems, setCartItems }
                             <div className="d-flex align-items-center justify-content-center">
                                 <div className="m-3">
                                     <label>         
-                                            <Button type="submit " className="btn btn-primary" >
+                                            <button type="button submit " className="btn btn-primary" >
                                                 Submit
-                                            </Button>
+                                            </button>
                                     </label>
                                 </div>
                                 
                                 <div className="m-3">
                                     <label>
-                                        <Button className="btn btn-danger"
+                                        <button className="btn btn-danger"
                                             onClick={() => {
                                                 setShowPopup(false)
                                             }}
-                                        >Cancel</Button>
+                                        >Cancel</button>
                                     </label>
                                 </div>
                             </div>

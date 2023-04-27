@@ -20,7 +20,6 @@ export const ExerciseGallery = ({ setInExercise, setInWorkout }) => {
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    console.log(get_exercises());
     const fetch_exercises = async () => {
       get_exercises().then(response => setExercises(response));
     }
