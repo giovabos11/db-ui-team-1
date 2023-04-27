@@ -28,8 +28,8 @@ export const WorkoutForm = ({ showPopup, setShowPopup, cartItems, setCartItems }
         setWeekday(e.target.value);
     };
 
-    const handleSubmit = () => {
-        console.log("submitted form to handleSubmit");
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
         if (cartItems.length !== 0) {
             let exercisesIds = [];
@@ -37,9 +37,17 @@ export const WorkoutForm = ({ showPopup, setShowPopup, cartItems, setCartItems }
             cartItems.forEach(item => {
                 exercisesIds.push(item.id);
             });
-
-            add_workouts_from_exercises(appContext.type, appContext.id, exercisesIds, muscle, exercisesIds.length * 10, weekday, description);
-            setCartItems([]);
+            
+            if (description!="" && weekday!="" && muscle!="") {
+                add_workouts_from_exercises(appContext.type, appContext.id, exercisesIds, muscle, exercisesIds.length * 10, weekday, description);
+                setCartItems([]);
+              }
+              else {
+                const error = "Not all input fields are filled"
+                
+                alert(error);
+              }
+            
         }
         setDescription("");
         setMuscle("");
@@ -51,7 +59,10 @@ export const WorkoutForm = ({ showPopup, setShowPopup, cartItems, setCartItems }
         <div>
             {showPopup && (
                 <>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={() =>{
+                        handleSubmit();
+                        
+                    }}>
                         <div className="d-flex flex-column position-fixed start-50 translate-middle-x p-3 rounded" style={{ width: "30%", zIndex: 9999, top: "25%", backgroundColor: "#F5F5DC" }}>
                             <label>Day</label>
                                 <select className="form-select-sm" id="weekday" value={weekday} onChange={handleWeekday}>
